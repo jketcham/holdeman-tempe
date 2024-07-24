@@ -2,6 +2,9 @@
 module.exports = {
   content: ["./index.html"],
   theme: {
+    fontFamily: {
+      display: ["Telegraf", "system-ui", "sans-serif"],
+    },
     extend: {
       colors: {
         holdeman: {

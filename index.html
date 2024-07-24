@@ -16,6 +16,22 @@
     <meta name="og:image" content="images/image2.png" />
     <link href="./output.css" rel="stylesheet" />
     <style type="text/css">
+      @font-face {
+        font-family: "Telegraf";
+        src:
+          url("/files/PPTelegraf-Regular.woff2") format("woff2"),
+          url("/files/PPTelegraf-Regular.woff") format("woff");
+        font-weight: 400;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: "Telegraf";
+        src:
+          url("/files/PPTelegraf-Ultrabold.woff2") format("woff2"),
+          url("/files/PPTelegraf-Ultrabold.woff") format("woff");
+        font-weight: 700;
+        font-display: swap;
+      }
       ol {
         margin: 0;
         padding: 0;
@@ -218,25 +234,52 @@
         max-inline-size: 100%;
         block-size: auto;
       }
+
+      button {
+        cursor: pointer;
+      }
+
+      a {
+        cursor: pointer;
+      }
     </style>
   </head>
   <body class="c20">
     <div class="max-w-2xl mx-auto">
       <a href="https://holdemantempe.org/">
-        <picture>
-          <source srcset="images/image2.webp" type="image/webp" />
-          <img
-            alt="Holdeman Neighborhood Association letterhead."
-            src="images/image2.png"
-            width="900"
-            height="240"
-          />
-        </picture>
+        <div
+          class="flex justify-between bg-holdeman px-4 md:px-6 py-5 md:py-8 uppercase font-display"
+        >
+          <div display="flex flex-col">
+            <span class="block w-full text-3xl md:text-5xl font-bold"
+              >Holdeman</span
+            >
+            <span class="block w-full md:text-2xl font-bold">Neighborhood</span>
+            <span class="block w-full md:text-2xl font-bold">Association</span>
+          </div>
+          <div class="flex flex-col">
+            <span class="block w-full text-right md:text-2xl font-bold mt-auto"
+              >Est. 1998</span
+            >
+            <span class="block w-full text-right text-sm md:text-xl"
+              >holdemantempe.org</span
+            >
+          </div>
+        </div>
+        <!-- <picture> -->
+        <!--   <source srcset="images/image2.webp" type="image/webp" /> -->
+        <!--   <img -->
+        <!--     alt="Holdeman Neighborhood Association letterhead." -->
+        <!--     src="images/image2.png" -->
+        <!--     width="900" -->
+        <!--     height="240" -->
+        <!--   /> -->
+        <!-- </picture> -->
       </a>
     </div>
     <main class="max-w-2xl mx-auto mt-4 mb-10 px-4 sm:px-0">
       <div class="flex flex-col text-center pb-4">
-        <h1 class="text-3xl mb-2">Artist Selection</h1>
+        <h1 class="text-3xl mb-2 font-display font-bold">Artist Selection</h1>
         <h2 class="text-lg">Hardy Dr. Bike Lane Art</h2>
         <h2 class="text-lg text-neutral-500">
           Neighborhood Grant Project 2024-2025
