@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: ["./index.html"],
+export default {
+  content: ['./src/**/*.{html,js,svelte,ts}'],
   theme: {
     fontFamily: {
       display: ["Telegraf", "system-ui", "sans-serif"],
@@ -25,4 +25,5 @@ module.exports = {
     },
   },
   plugins: [],
-};
+}
+
