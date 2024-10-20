@@ -160,16 +160,18 @@
 			</h2>
 			<p class="c1"></p>
 			<div class="flex space-x-4 mt-2">
-				<picture>
-					<source srcset="images/design-option-1.webp" type="image/webp" />
-					<img
-						alt="Design option 1"
-						loading="lazy"
-						src="images/design-option-1.jpeg"
-						width="1280"
-						height="853"
-					/>
-				</picture>
+				<a href="images/design-option-1.webp" target="_blank">
+					<picture>
+						<source srcset="images/design-option-1.webp" type="image/webp" />
+						<img
+							alt="Design option 1"
+							loading="lazy"
+							src="images/design-option-1.jpeg"
+							width="1280"
+							height="853"
+						/>
+					</picture>
+				</a>
 			</div>
 		</div>
 
@@ -178,16 +180,18 @@
 				<span class="text-xl">Option 2</span>
 			</h2>
 			<div class="flex space-x-4 mt-2">
-				<picture>
-					<source srcset="images/design-option-2.webp" type="image/webp" />
-					<img
-						alt="Design option 2"
-						loading="lazy"
-						src="images/design-option-2.jpeg"
-						width="1280"
-						height="853"
-					/>
-				</picture>
+				<a href="images/design-option-2.webp" target="_blank">
+					<picture>
+						<source srcset="images/design-option-2.webp" type="image/webp" />
+						<img
+							alt="Design option 2"
+							loading="lazy"
+							src="images/design-option-2.jpeg"
+							width="1280"
+							height="853"
+						/>
+					</picture>
+				</a>
 			</div>
 		</div>
 	</section>
