@@ -70,7 +70,7 @@
 	<p class="c1 c9"><span class="c7"></span></p>
 
 	<figure>
-		<div class="grid grid-cols-1 sm:grid-cols-2 justify-center">
+		<div class="grid grid-cols-1 sm:grid-cols-2 justify-center rounded overflow-hidden">
 			<picture>
 				<source srcset="images/image3.webp" type="image/webp" />
 				<img
