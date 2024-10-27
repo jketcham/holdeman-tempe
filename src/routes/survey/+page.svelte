@@ -169,6 +169,7 @@
 							src="images/design-option-1.jpeg"
 							width="1280"
 							height="853"
+							class="rounded border hover:opacity-90 transition-all"
 						/>
 					</picture>
 				</a>
@@ -189,6 +190,7 @@
 							src="images/design-option-2.jpeg"
 							width="1280"
 							height="853"
+							class="rounded border hover:opacity-90 transition-all"
 						/>
 					</picture>
 				</a>
