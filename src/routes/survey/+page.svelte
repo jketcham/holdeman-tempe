@@ -134,17 +134,9 @@
 		>
 	</p>
 	<p class="c1 c9"><span class="c7"></span></p>
-	<p class="c17 mt-4">
-		<a class="c0" href="https://forms.gle/rg2sjQNzoA17TReVA?utm_source=holdeman_na">
-			<button class="bg-holdeman-400 px-6 py-4 rounded font-bold hover:bg-holdeman-500 transition">
-				Take the survey here!
-			</button>
-		</a>
-	</p>
 
 	<div class="text-center mt-4 italic">
-		Survey submissions must be received by
-		<strong class="inline-block">November 22nd</strong>
+		Survey submissions closed on November 22nd, results will be announced soon!
 	</div>
 
 	<hr style="page-break-before: always; display: none" />
