@@ -1,17 +1,17 @@
 <svelte:head>
-	<title>Design Selection – Holdeman Neighborhood Association</title>
+	<title>Project Ideas – Holdeman Neighborhood Association</title>
 	<meta
 		name="description"
-		content="Help select an artist for our 2024–2025 Neighborhood Grant Project! Check out the artists and submit your top choices."
+		content="Help choose our next neighborhood grant project! Share your ideas and preferences for improving our community."
 	/>
 	<meta name="twitter:label1" content="Survey Deadline" />
-	<meta name="twitter:data1" content="August 2nd" />
+	<meta name="twitter:data1" content="January 24th" />
 </svelte:head>
 
 <div class="max-w-2xl mx-auto">
 	<a href="/">
 		<div class="flex justify-between bg-holdeman px-4 md:px-6 py-5 md:py-8 uppercase font-display">
-			<div display="flex flex-col">
+			<div class="flex flex-col">
 				<span class="block w-full text-3xl md:text-5xl font-bold md:mb-2">Holdeman</span>
 				<span class="block w-full md:text-2xl font-bold">Neighborhood</span>
 				<span class="block w-full md:text-2xl font-bold">Association</span>
@@ -26,179 +26,177 @@
 
 <main class="flex flex-col max-w-2xl mx-auto mt-4 mb-10 px-4 sm:px-0">
 	<div class="flex flex-col text-center pb-4">
-		<h1 class="text-3xl mb-2 font-display font-bold uppercase">Design Selection</h1>
-		<h2 class="text-lg">Hardy Dr. Bike Lane Art</h2>
-		<h2 class="text-lg text-neutral-500">Neighborhood Grant Project 2024-2025</h2>
+		<h1 class="text-3xl mb-2 font-display font-bold uppercase">Project Ideas</h1>
+		<h2 class="text-lg">2025–2026 Neighborhood Grant</h2>
+		<h2 class="text-lg text-neutral-500">Share Your Vision for Holdeman</h2>
 	</div>
 
 	<hr />
 
-	<h1 class="c10" id="h.llnvmu62l4pw">
-		<span class="text-2xl">Background</span>
+	<h1 class="pt-5 pb-1.5 text-left text-2xl">
+		<span>Background</span>
 	</h1>
-	<p class="c1">
-		<span>The Holdeman Neighborhood Association was awarded $20k in funding for our </span><span
-			class="c4"
+	<p class="py-0">
+		<span>We're preparing to apply for another </span><span class="text-blue-600 underline"
 			><a
-				class="c0"
+				class="text-inherit no-underline"
 				target="_blank"
 				rel="noreferer nofollow"
 				href="https://www.tempe.gov/government/city-manager-s-office/neighborhood-services/neighborhood-grant-program"
 				>Maryanne Corder Neighborhood Grant</a
 			></span
-		><span class="c7">&nbsp;project for the 2024&ndash;2025 cycle!</span>
+		><span>, and we want your input on what our next project should be!</span>
 	</p>
-	<h1 class="c10" id="h.3se90ozbrcez">
-		<span class="text-2xl">Project</span>
-	</h1>
-	<p class="c1">
-		<span>We&rsquo;ll be completing an </span><span class="c4"
-			><a
-				class="c0"
-				target="_blank"
-				rel="noreferer nofollow"
-				href="https://www.tempe.gov/government/transportation-and-sustainability/transportation/streetscape-projects/adaptive-streets"
-				>Adaptive Streets</a
-			></span
-		><span class="c7"
-			>&nbsp;project to paint art in the bike lanes along Hardy Dr. around 17th Pl in order to
-			beautify the roadway, serve a placemaking function to welcome people to the area, and
-			highlight the presence of the bike lane and sidewalk to motorists with the hope of slowing
-			them down.</span
-		>
-	</p>
-	<p class="c1 c9"><span class="c7"></span></p>
 
-	<figure>
-		<div class="grid grid-cols-1 sm:grid-cols-2 justify-center rounded overflow-hidden">
-			<picture>
-				<source srcset="images/image3.webp" type="image/webp" />
-				<img
-					alt="Partially completed bike lane art."
-					loading="lazy"
-					src="images/image3.jpg"
-					width="570"
-					height="760"
-				/>
-			</picture>
-			<picture>
-				<source srcset="images/image1.webp" type="image/webp" />
-				<img
-					alt="Bike lane art being painted by volunteers."
-					loading="lazy"
-					src="images/image1.jpg"
-					width="570"
-					height="760"
-				/>
-			</picture>
+	<h1 class="pt-5 pb-1.5 text-left text-2xl">
+		<span>Selection Process</span>
+	</h1>
+	<p class="py-0">
+		<span>We're using a two-phase process to select our next project:</span>
+	</p>
+
+	<div class="my-4 space-y-4">
+		<div class="bg-holdeman/10 p-4 rounded">
+			<h3 class="font-bold">Phase 1: Share Your Ideas</h3>
+			<p>
+				January 2–24: Submit your preferred project type and up to three ideas for neighborhood
+				improvements through our survey.
+			</p>
 		</div>
-		<figcaption class="text-center text-sm mt-1.5">
-			Bike lane art along College Ave. in Broadmor
-		</figcaption>
-	</figure>
 
-	<p class="c1 c9"><span class="c7"></span></p>
-	<p class="c1">
-		<span class="c7"
-			>A similar project was completed by the Broadmor Neighborhood Association during the
-			2023&ndash;2024 grant cycle along College Ave between Palmcroft Dr and Concorda Dr (photos
-			above).</span
-		>
-	</p>
-	<p class="c1 c9"><span class="c7"></span></p>
-	<p class="c1">
-		<span class="c7">
-			In September, we selected <span class="c4"
-				><a
-					class="c0"
-					href="https://muralmates.com?utm_source=holdeman"
-					target="_blank"
-					rel="noreferer nofollow">Nicole Poppell</a
-				></span
-			> as our project artist after collecting responses to our artist selection survey.
-		</span>
-	</p>
-	<h1 class="c10" id="h.i8r9qp2oiw7z">
-		<span class="text-2xl">Next</span>
+		<div class="bg-holdeman/10 p-4 rounded">
+			<h3 class="font-bold">Phase 2: Vote on Top Ideas</h3>
+			<p>
+				January 31–February 21: After reviewing all submissions, we'll create a follow-up survey
+				where you can rank your favorite ideas.
+			</p>
+		</div>
+	</div>
+
+	<h1 class="pt-5 pb-1.5 text-left text-2xl">
+		<span>Project Requirements</span>
 	</h1>
-	<p class="c1">
-		<span class="c7">
-			Nicole has created two design concepts for the art to paint in the bike lanes that we can
-			choose from and make comments on. Please share your thoughts in the survey!
-		</span>
+	<p class="py-0">All grant projects must:</p>
+	<ul class="list-disc ml-8 my-4 space-y-2">
+		<li>Be completed within one year of being funded (by June 2026)</li>
+		<li>Fit within a $20,000 budget (the grant's maximum award)</li>
+	</ul>
+	<p class="py-0">
+		Keep in mind that bigger projects can be split into multi-year phases, with each phase funded by
+		separate grant cycles. We can also partner with neighboring associations to pool grant
+		funding—for example, teaming up with another neighborhood would allow for a $40,000 project
+		budget, etc.
 	</p>
-	<p class="c1 c9"><span class="c7"></span></p>
-	<p class="c1">
-		<span class="c7"
-			>Review the designs below, and complete the survey to indicate your top choice.</span
+
+	<div class="bg-holdeman/10 p-6 rounded-lg my-8 text-center">
+		<h2 class="text-xl font-bold mb-4">Share Your Ideas!</h2>
+		<p class="mb-4">
+			Help shape the future of our neighborhood by submitting your project ideas and preferences.
+		</p>
+		<a
+			href="https://docs.google.com/forms/d/e/1FAIpQLSfVdPhDiWfgdf9xkrGpSEK_6T4CLOVgnH4AHgV3ucFOLF-QMg/viewform?usp=dialog"
+			target="_blank"
+			rel="noopener"
 		>
-	</p>
-	<p class="c1 c9"><span class="c7"></span></p>
-
-	<div class="text-center mt-4 italic">
-		Survey submissions closed on November 22nd, results will be announced soon!
+			<button class="bg-holdeman-400 px-6 py-4 rounded font-bold hover:bg-holdeman-500 transition">
+				Take the Survey
+			</button>
+		</a>
 	</div>
 
-	<hr style="page-break-before: always; display: none" />
-
-	<div class="flex items-baseline space-x-2 mt-8 mb-4" id="h.g3uvqgdlj0fr">
-		<h2 class="text-2xl">Designs</h2>
-	</div>
-
-	<section class="flex flex-col space-y-6">
-		<div>
-			<h2 class="" id="h.l46pxmea0jhe">
-				<span class="text-xl">Option 1</span>
-			</h2>
-			<p class="c1"></p>
-			<div class="flex space-x-4 mt-2">
-				<a href="images/design-option-1.webp" target="_blank">
-					<picture>
-						<source srcset="images/design-option-1.webp" type="image/webp" />
-						<img
-							alt="Design option 1"
-							loading="lazy"
-							src="images/design-option-1.jpeg"
-							width="1280"
-							height="853"
-							class="rounded border hover:opacity-90 transition-all"
-						/>
-					</picture>
-				</a>
+	<h1 class="pt-5 pb-1.5 text-left text-2xl">
+		<span>Example Project Ideas</span>
+	</h1>
+	<p class="py-0 italic">Here are a few possibilities to inspire you:</p>
+	<div class="space-y-8 my-6">
+		<div class="grid md:grid-cols-2 gap-4 items-start">
+			<picture>
+				<source srcset="images/tree-planting.webp" type="image/webp" />
+				<img
+					alt="Trees providing shade along a neighborhood street"
+					loading="lazy"
+					src="images/tree-planting.jpg"
+					class="rounded-lg w-full h-48 object-cover"
+				/>
+			</picture>
+			<div class="md:pt-2">
+				<span>Neighborhood tree planting to add shade and increase cooling.</span>
 			</div>
 		</div>
 
-		<div>
-			<h2 class="" id="h.nip9xhszsh5q">
-				<span class="text-xl">Option 2</span>
-			</h2>
-			<div class="flex space-x-4 mt-2">
-				<a href="images/design-option-2.webp" target="_blank">
-					<picture>
-						<source srcset="images/design-option-2.webp" type="image/webp" />
-						<img
-							alt="Design option 2"
-							loading="lazy"
-							src="images/design-option-2.jpeg"
-							width="1280"
-							height="853"
-							class="rounded border hover:opacity-90 transition-all"
-						/>
-					</picture>
-				</a>
+		<div class="grid md:grid-cols-2 gap-4 items-start">
+			<picture>
+				<source srcset="images/bioswale.webp" type="image/webp" />
+				<img
+					alt="Native plants in a stormwater basin"
+					loading="lazy"
+					src="images/bioswale.jpg"
+					class="rounded-lg w-full h-48 object-cover"
+				/>
+			</picture>
+			<div class="md:pt-2">
+				<span>Stormwater harvesting and native species planting along streets.</span>
 			</div>
 		</div>
-	</section>
+
+		<div class="grid md:grid-cols-2 gap-4 items-start">
+			<picture>
+				<source srcset="images/traffic-circle.webp" type="image/webp" />
+				<img
+					alt="Traffic circle with plants"
+					loading="lazy"
+					src="images/traffic-circle.jpg"
+					class="rounded-lg w-full h-48 object-cover"
+				/>
+			</picture>
+			<div class="md:pt-2">
+				<span>Traffic calming measures (traffic circles/speed bumps) to enhance safety.</span>
+			</div>
+		</div>
+
+		<div class="grid md:grid-cols-2 gap-4 items-start">
+			<picture>
+				<source srcset="images/public-art.webp" type="image/webp" />
+				<img
+					alt="Public art installation in a median"
+					loading="lazy"
+					src="images/public-art.jpg"
+					class="rounded-lg w-full h-48 object-cover"
+				/>
+			</picture>
+			<div class="md:pt-2">
+				<span
+					>Public art installations in shared spaces, like the medians on Hardy or on street
+					corners.</span
+				>
+			</div>
+		</div>
+
+		<div class="grid md:grid-cols-2 gap-4 items-start">
+			<picture>
+				<source srcset="images/wall-mural.webp" type="image/webp" />
+				<img
+					alt="Colorful mural on a residential wall"
+					loading="lazy"
+					src="images/wall-mural.jpg"
+					class="rounded-lg w-full h-48 object-cover"
+				/>
+			</picture>
+			<div class="md:pt-2">
+				<span>Mural painting on neighbors' street-facing walls to add color and charm.</span>
+			</div>
+		</div>
+	</div>
 
 	<div class="mt-8 mb-10">
-		<h2 class="text-2xl">Updates</h2>
+		<h2 class="text-2xl">Stay Updated</h2>
 
 		<p class="my-4">
-			Sign up to receive our email newsletter and stay up to date on the project and neighborhood
-			news.
+			Sign up for our email newsletter to receive updates about the project selection process and
+			other neighborhood news.
 		</p>
 		<div class="flex justify-center">
-			<a class="c0" href="https://holdemantempe.org/newsletter">
+			<a class="text-inherit no-underline" href="https://holdemantempe.org/newsletter">
 				<button
 					class="bg-holdeman-400 px-6 py-4 rounded font-bold hover:bg-holdeman-500 transition"
 				>
@@ -209,50 +207,7 @@
 	</div>
 </main>
 
-<style type="text/css">
-	.c10 {
-		padding-top: 20pt;
-		padding-bottom: 6pt;
-		page-break-after: avoid;
-		orphans: 2;
-		widows: 2;
-		text-align: left;
-	}
-	.c7 {
-		color: #000000;
-		font-weight: 400;
-		text-decoration: none;
-		vertical-align: baseline;
-		font-style: normal;
-	}
-	.c17 {
-		padding-top: 0pt;
-		padding-bottom: 0pt;
-		orphans: 2;
-		widows: 2;
-		text-align: center;
-	}
-	.c1 {
-		padding-top: 0pt;
-		padding-bottom: 0pt;
-		orphans: 2;
-		widows: 2;
-		text-align: left;
-	}
-	.c4 {
-		text-decoration-skip-ink: none;
-		-webkit-text-decoration-skip: none;
-		color: #1155cc;
-		text-decoration: underline;
-	}
-	.c0 {
-		color: inherit;
-		text-decoration: inherit;
-	}
-	.c9 {
-		height: 11pt;
-	}
-
+<style>
 	img {
 		max-inline-size: 100%;
 		block-size: auto;
