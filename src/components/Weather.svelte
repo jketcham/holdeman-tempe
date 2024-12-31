@@ -1,9 +1,12 @@
 <script lang="ts">
 	import { onMount, onDestroy } from 'svelte';
+	import { page } from '$app/stores';
 
-	let temperature: number | null = null;
-	let conditions: string | null = null;
-	let timestamp: string | null = null;
+	export let initialWeather: { temperature: number; conditions: string } | null =
+		$page.data.weather;
+
+	let temperature: number | null = initialWeather?.temperature ?? null;
+	let conditions: string | null = initialWeather?.conditions ?? null;
 	let currentTime = new Date();
 
 	function celsiusToFahrenheit(celsius: number): number {
@@ -25,7 +28,6 @@
 				const data = await response.json();
 				temperature = data.temperature;
 				conditions = data.conditions;
-				timestamp = data.timestamp;
 			}
 		} catch (error) {
 			console.error('Failed to fetch weather:', error);
@@ -38,7 +40,6 @@
 	}, 1000);
 
 	onMount(() => {
-		fetchWeather();
 		// Update weather every 5 minutes
 		const weatherInterval = setInterval(fetchWeather, 5 * 60 * 1000);
 		return () => clearInterval(weatherInterval);

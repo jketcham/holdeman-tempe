@@ -1,12 +1,14 @@
 <script lang="ts">
 	import Weather from './Weather.svelte';
 	import Container from './Container.svelte';
+
+	export let initialWeather: { temperature: number; conditions: string } | null = null;
 </script>
 
 <div class="flex flex-col">
 	<div class="bg-holdeman">
 		<Container>
-			<Weather />
+			<Weather {initialWeather} />
 			<a href="/">
 				<div class="flex justify-between py-5 md:py-8 uppercase font-display">
 					<div class="flex flex-col flex-shrink">

@@ -1,10 +1,12 @@
-<script>
+<script lang="ts">
 	import '../app.css';
 	import Navbar from '../components/Navbar.svelte';
 	import Container from '../components/Container.svelte';
+
+	export let data;
 </script>
 
-<Navbar />
+<Navbar initialWeather={data.weather} />
 
 <slot />
 
