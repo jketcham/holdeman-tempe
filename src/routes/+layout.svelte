@@ -4,9 +4,7 @@
 	import Container from '../components/Container.svelte';
 </script>
 
-<Container>
-	<Navbar />
-</Container>
+<Navbar />
 
 <slot />
 
