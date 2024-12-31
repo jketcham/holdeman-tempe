@@ -42,5 +42,8 @@
 		"vitest": "^1.2.0",
 		"wrangler": "^3.66.0"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"marked": "^15.0.4"
+	}
 }

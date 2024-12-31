@@ -1,11 +1,12 @@
 <script>
 	import '../app.css';
 	import Navbar from '../components/Navbar.svelte';
+	import Container from '../components/Container.svelte';
 </script>
 
-<div class="max-w-2xl mx-auto">
+<Container>
 	<Navbar />
-</div>
+</Container>
 
 <slot />
 

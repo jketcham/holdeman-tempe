@@ -1,3 +1,7 @@
+<script>
+	import Container from '../../components/Container.svelte';
+</script>
+
 <svelte:head>
 	<title>Project Ideas – Holdeman Neighborhood Association</title>
 	<meta
@@ -8,7 +12,7 @@
 	<meta name="twitter:data1" content="January 24th" />
 </svelte:head>
 
-<main class="flex flex-col max-w-2xl mx-auto mt-4 mb-10 px-4 sm:px-0">
+<Container class="mt-4 mb-10">
 	<div class="flex flex-col text-center pb-4">
 		<h1 class="text-3xl mb-2 font-display font-bold uppercase">Project Ideas</h1>
 		<h2 class="text-lg">2025–2026 Neighborhood Grant</h2>
@@ -189,7 +193,7 @@
 			</a>
 		</div>
 	</div>
-</main>
+</Container>
 
 <style>
 	img {
