@@ -3,6 +3,13 @@ name = "holdeman-na"
 pages_build_output_dir = ".svelte-kit/cloudflare"
 compatibility_date = "2024-07-15"
 
+# For local development and CLI commands
+[[d1_databases]]
+binding = "DB"
+database_name = "holdeman"
+database_id = "4c3acd37-83b2-4963-92a9-a5d5f439f8ad"
+
+# For production deployment
 [env.production]
 [[env.production.d1_databases]]
 binding = "DB"
