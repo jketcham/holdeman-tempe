@@ -14,11 +14,20 @@
 	}
 
 	function formatTime(date: Date): string {
-		return date.toLocaleTimeString('en-US', {
+		const time = new Intl.DateTimeFormat('en-US', {
 			hour: 'numeric',
 			minute: '2-digit',
 			timeZone: 'America/Phoenix'
-		});
+		}).format(date);
+
+		const date_str = new Intl.DateTimeFormat('en-US', {
+			weekday: 'long',
+			month: 'short',
+			day: 'numeric',
+			timeZone: 'America/Phoenix'
+		}).format(date);
+
+		return `${time} on ${date_str}`;
 	}
 
 	async function fetchWeather() {
@@ -55,7 +64,7 @@
 </script>
 
 <div class="text-sm mt-2 flex flex-col md:flex-row md:items-center border-b border-black pb-1">
-	<span class="font-medium">{localTime} MST</span>
+	<span class="font-medium">{localTime}</span>
 	{#if temperature !== null && conditions}
 		<span class="hidden md:inline mx-2">•</span>
 		<span>It's {formattedTemp} and {conditions.toLowerCase()} in Holdeman</span>
