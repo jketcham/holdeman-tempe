@@ -5,11 +5,9 @@ declare global {
 		// interface Error {}
 		// interface Locals {}
 		// interface PageData {}
-		// interface PageState {}
 		interface Platform {
-			env?: {
-				YOUR_KV_NAMESPACE: KVNamespace;
-				YOUR_DURABLE_OBJECT_NAMESPACE: DurableObjectNamespace;
+			env: {
+				DB: D1Database;
 			};
 		}
 	}

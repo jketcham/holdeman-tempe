@@ -1,6 +1,9 @@
-<script>
+<script lang="ts">
 	import Container from '../components/Container.svelte';
 	import Banner from '../components/Banner.svelte';
+
+	export let data;
+	const { bannerData } = data;
 </script>
 
 <svelte:head>
@@ -10,15 +13,15 @@
 
 <main class="min-h-screen py-8">
 	<Container>
-		<Banner
-			title="Help Choose Our Next Project!"
-			description={`Share your ideas for our **2025–2026 Neighborhood Grant Project**.
-
-Survey open through **January 24th**.`}
-			link_url="/survey"
-			link_text="Take the Survey"
-			updatedAt="2024-01-02"
-		/>
+		{#if bannerData}
+			<Banner
+				title={bannerData.title}
+				description={bannerData.description}
+				link_url={bannerData.link_url}
+				link_text={bannerData.link_text}
+				updatedAt={bannerData.created_at}
+			/>
+		{/if}
 
 		<div class="space-y-4">
 			<a
