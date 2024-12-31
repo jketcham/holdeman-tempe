@@ -2,13 +2,20 @@
 	import '../app.css';
 	import Navbar from '../components/Navbar.svelte';
 	import Container from '../components/Container.svelte';
+	import Footer from '../components/Footer.svelte';
 
 	export let data;
 </script>
 
-<Navbar initialWeather={data.weather} />
+<div class="min-h-screen flex flex-col">
+	<Navbar initialWeather={data.weather} />
 
-<slot />
+	<main class="flex-grow">
+		<slot />
+	</main>
+
+	<Footer />
+</div>
 
 <style>
 	:global(html) {
