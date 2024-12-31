@@ -64,7 +64,7 @@
 </script>
 
 <div class="text-sm mt-2 flex flex-col md:flex-row md:items-center border-b border-black pb-1">
-	<span class="font-medium">{localTime}</span>
+	<span>{localTime}</span>
 	{#if temperature !== null && conditions}
 		<span class="hidden md:inline mx-2">•</span>
 		<span>It's {formattedTemp} and {conditions.toLowerCase()} in Holdeman</span>
