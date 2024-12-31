@@ -1,11 +1,11 @@
-import type { Link } from './types';
+import type { Link, BannerUpdate } from './types';
 import type { D1Database } from '@cloudflare/workers-types';
 
 const ACTIVE_LINKS_QUERY = `
 	SELECT * FROM links
 	WHERE 
 		(start_date IS NULL OR start_date <= CURRENT_TIMESTAMP)
-			AND (end_date IS NULL OR end_date > CURRENT_TIMESTAMP)
+		AND (end_date IS NULL OR end_date > CURRENT_TIMESTAMP)
 	ORDER BY "order" ASC, created_at DESC;
 `;
 
@@ -24,6 +24,6 @@ export async function getActiveLinks(db: D1Database) {
 }
 
 export async function getLatestBanner(db: D1Database) {
-	const result = await db.prepare(LATEST_BANNER_QUERY).first();
+	const result = await db.prepare(LATEST_BANNER_QUERY).first<BannerUpdate>();
 	return result || null;
 }

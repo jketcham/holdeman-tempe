@@ -139,7 +139,7 @@
 				<a
 					href="https://www.jakeearly.com/?utm_source=holdeman_na"
 					target="_blank"
-					ref="noreferer nofollow"
+					rel="noreferer nofollow"
 				>
 					<button
 						class="bg-neutral-300 hover:bg-neutral-400 transition rounded px-4 py-2 font-bold"
@@ -150,7 +150,7 @@
 				<a
 					href="https://drive.google.com/file/d/1M4Hb4Z1cMrwYHMGdkVuY1nV4KDvFh-Ez/view?utm_source=holdeman_na"
 					target="_blank"
-					ref="noreferer nofollow"
+					rel="noreferer nofollow"
 				>
 					<button
 						class="bg-neutral-300 hover:bg-neutral-400 transition rounded px-4 py-2 font-bold"
@@ -169,7 +169,7 @@
 				<a
 					href="https://www.laurenleefineart.com/?utm_source=holdeman_na"
 					target="_blank"
-					ref="noreferer nofollow"
+					rel="noreferer nofollow"
 				>
 					<button
 						class="bg-neutral-300 hover:bg-neutral-400 transition rounded px-4 py-2 font-bold"
@@ -180,7 +180,7 @@
 				<a
 					href="https://drive.google.com/file/d/1CuxqrejYeP-RJwvE-dav-8nX2GIo8ksV/view?utm_source=holdeman_na"
 					target="_blank"
-					ref="noreferer nofollow"
+					rel="noreferer nofollow"
 				>
 					<button
 						class="bg-neutral-300 hover:bg-neutral-400 transition rounded px-4 py-2 font-bold"
@@ -199,7 +199,7 @@
 				<a
 					href="https://www.kyllanmaney.com/?utm_source=holdeman_na"
 					target="_blank"
-					ref="noreferer nofollow"
+					rel="noreferer nofollow"
 				>
 					<button
 						class="bg-neutral-300 hover:bg-neutral-400 transition rounded px-4 py-2 font-bold"
@@ -210,7 +210,7 @@
 				<a
 					href="https://drive.google.com/file/d/1LnjLVG5rnm1-ME90dGyXn98jHXysEc0F/view?utm_source=holdeman_na"
 					target="_blank"
-					ref="noreferer nofollow"
+					rel="noreferer nofollow"
 				>
 					<button
 						class="bg-neutral-300 hover:bg-neutral-400 transition rounded px-4 py-2 font-bold"
@@ -229,7 +229,7 @@
 				<a
 					href="https://www.nnuzzo.com/?utm_source=holdeman_na"
 					target="_blank"
-					ref="noreferer nofollow"
+					rel="noreferer nofollow"
 				>
 					<button
 						class="bg-neutral-300 hover:bg-neutral-400 transition rounded px-4 py-2 font-bold"
@@ -240,7 +240,7 @@
 				<a
 					href="https://drive.google.com/file/d/13P75cB6gAsWuIUgWl8oWpmU3j0TFF9Af/view?utm_source=holdeman_na"
 					target="_blank"
-					ref="noreferer nofollow"
+					rel="noreferer nofollow"
 				>
 					<button
 						class="bg-neutral-300 hover:bg-neutral-400 transition rounded px-4 py-2 font-bold"
@@ -259,7 +259,7 @@
 				<a
 					href="https://www.rebeccarossstudio.com/?utm_source=holdeman_na"
 					target="_blank"
-					ref="noreferer nofollow"
+					rel="noreferer nofollow"
 				>
 					<button
 						class="bg-neutral-300 hover:bg-neutral-400 transition rounded px-4 py-2 font-bold"
@@ -270,7 +270,7 @@
 				<a
 					href="https://drive.google.com/file/d/1Pw4ufSIuqJl5XiGoE3YWGHCO__OBKUgI/view?utm_source=holdeman_na"
 					target="_blank"
-					ref="noreferer nofollow"
+					rel="noreferer nofollow"
 				>
 					<button
 						class="bg-neutral-300 hover:bg-neutral-400 transition rounded px-4 py-2 font-bold"

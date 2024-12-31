@@ -1,10 +1,12 @@
 <script lang="ts">
 	import { marked } from 'marked';
-	export let title = '';
-	export let description = '';
-	export let link_url = '';
-	export let link_text = '';
-	export let updatedAt = '';
+	import type { BannerUpdate } from '$lib/types';
+
+	export let title: string;
+	export let description: string;
+	export let link_url: BannerUpdate['link_url'] = null;
+	export let link_text: BannerUpdate['link_label'] = null;
+	export let updatedAt: string;
 
 	$: formattedDescription = marked(description);
 

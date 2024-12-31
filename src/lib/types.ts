@@ -8,3 +8,15 @@ export type Link = {
 	start_date: string | null;
 	end_date: string | null;
 };
+
+export type BannerUpdate = {
+	id: number;
+	title: string;
+	content: string;
+	link_url: string | null;
+	link_label: string | null;
+	created_at: string;
+	updated_at: string;
+	start_date: string | null;
+	end_date: string | null;
+};
