@@ -11,7 +11,7 @@
 	<meta name="description" content="Home page for the Holdeman Neighborhood Association" />
 </svelte:head>
 
-<main class="min-h-screen py-8">
+<main class="py-8">
 	<Container>
 		{#if bannerData}
 			<Banner
