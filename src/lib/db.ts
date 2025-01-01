@@ -27,3 +27,21 @@ export async function getLatestBanner(db: D1Database) {
 	const result = await db.prepare(LATEST_BANNER_QUERY).first<BannerUpdate>();
 	return result || null;
 }
+
+export async function createLinkEvent(
+	db: D1Database,
+	{
+		link_id,
+		ip_address,
+		user_agent
+	}: {
+		link_id: number;
+		ip_address: string;
+		user_agent: string;
+	}
+) {
+	return await db
+		.prepare(`INSERT INTO link_events (link_id, ip_address, user_agent) VALUES (?, ?, ?)`)
+		.bind(link_id, ip_address, user_agent)
+		.run();
+}

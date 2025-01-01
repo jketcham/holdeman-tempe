@@ -8,6 +8,7 @@ compatibility_date = "2024-07-15"
 binding = "DB"
 database_name = "holdeman"
 database_id = "4c3acd37-83b2-4963-92a9-a5d5f439f8ad"
+migrations_dir = "./migrations"
 
 # For production deployment
 [env.production]
