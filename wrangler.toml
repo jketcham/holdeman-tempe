@@ -16,3 +16,14 @@ migrations_dir = "./migrations"
 binding = "DB"
 database_name = "holdeman"
 database_id = "4c3acd37-83b2-4963-92a9-a5d5f439f8ad"
+
+[[kv_namespaces]]
+binding = "AUTH_STORE"
+id = "405ed3fd2ee74b28919cde8d53d4e81f"
+preview_id = "c783cf23382c45c59ed7944c92b4b160"
+
+# Production environment
+[env.production]
+[[env.production.kv_namespaces]]
+binding = "AUTH_STORE"
+id = "405ed3fd2ee74b28919cde8d53d4e81f"
