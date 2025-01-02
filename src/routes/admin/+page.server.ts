@@ -12,7 +12,7 @@ import {
 	updateLink
 } from '$lib/db';
 
-export const load: PageServerLoad = async ({ platform, depends }) => {
+export const load: PageServerLoad = async ({ platform, depends, url }) => {
 	if (!platform?.env?.DB) {
 		throw new Error('Database not available');
 	}
@@ -20,9 +20,12 @@ export const load: PageServerLoad = async ({ platform, depends }) => {
 	depends('app:links');
 	depends('app:banners');
 
+	const bannerPage = parseInt(url.searchParams.get('bannerPage') || '1');
+	const linkPage = parseInt(url.searchParams.get('linkPage') || '1');
+
 	const [links, bannerUpdates, linkStats] = await Promise.all([
-		getLinks(platform.env.DB),
-		getBannerUpdates(platform.env.DB),
+		getLinks(platform.env.DB, linkPage),
+		getBannerUpdates(platform.env.DB, bannerPage),
 		getLinkStats(platform.env.DB)
 	]);
 

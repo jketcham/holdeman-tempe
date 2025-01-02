@@ -1,9 +1,12 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
 	import { invalidate } from '$app/navigation';
+	import { page } from '$app/stores';
+	import { goto } from '$app/navigation';
 	import type { PageData } from './$types';
 	import BannerForm from '../../components/BannerForm.svelte';
 	import LinkForm from '../../components/LinkForm.svelte';
+	import Pagination from '../../components/Pagination.svelte';
 
 	export let data: PageData;
 
@@ -11,6 +14,24 @@
 	let showNewBannerForm = false;
 	let editingLink: number | null = null;
 	let editingBanner: number | null = null;
+	let currentBannerPage = parseInt($page.url.searchParams.get('bannerPage') || '1');
+	let currentLinkPage = parseInt($page.url.searchParams.get('linkPage') || '1');
+
+	async function handleBannerPageChange(page: number) {
+		currentBannerPage = page;
+		const url = new URL($page.url);
+		url.searchParams.set('bannerPage', page.toString());
+		await goto(url, { keepFocus: true });
+		await invalidate('app:banners');
+	}
+
+	async function handleLinkPageChange(page: number) {
+		currentLinkPage = page;
+		const url = new URL($page.url);
+		url.searchParams.set('linkPage', page.toString());
+		await goto(url, { keepFocus: true });
+		await invalidate('app:links');
+	}
 </script>
 
 <div class="mx-auto max-w-4xl p-6">
@@ -92,6 +113,14 @@
 					</div>
 				{/each}
 			</div>
+
+			<div class="mt-4">
+				<Pagination
+					currentPage={currentBannerPage}
+					totalPages={data.bannerUpdates.totalPages}
+					onPageChange={handleBannerPageChange}
+				/>
+			</div>
 		</div>
 
 		<!-- Links Section -->
@@ -164,6 +193,14 @@
 						</div>
 					</div>
 				{/each}
+			</div>
+
+			<div class="mt-4">
+				<Pagination
+					currentPage={currentLinkPage}
+					totalPages={data.links.totalPages}
+					onPageChange={handleLinkPageChange}
+				/>
 			</div>
 		</div>
 
