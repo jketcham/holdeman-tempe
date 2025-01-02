@@ -1,3 +1,6 @@
+-- Clear `link_events` table first (due to foreign key constraint)
+DELETE FROM link_events;
+
 -- Clear `links` table
 DELETE FROM links;
 
