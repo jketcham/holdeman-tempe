@@ -13,7 +13,7 @@
 	let editingBanner: number | null = null;
 </script>
 
-<div class="mx-auto max-w-6xl p-6">
+<div class="mx-auto max-w-4xl p-6">
 	<div class="mb-8 flex items-center justify-between">
 		<h1 class="text-2xl font-bold">Admin Dashboard</h1>
 		<form method="POST" action="/admin/logout">
@@ -21,9 +21,9 @@
 		</form>
 	</div>
 
-	<div class="grid gap-8 md:grid-cols-2">
+	<div class="space-y-8">
 		<!-- Banner Updates Section -->
-		<div class="rounded-lg bg-white p-6 shadow">
+		<div class="md:rounded-lg md:bg-white md:p-6 md:shadow">
 			<div class="mb-4 flex items-center justify-between">
 				<h2 class="text-xl font-bold">Banner Updates</h2>
 				<button
@@ -51,17 +51,43 @@
 					<div class="rounded border p-4">
 						<h3 class="font-bold">{banner.title}</h3>
 						<p class="text-sm text-gray-600">{banner.content}</p>
-						<div class="mt-2 flex justify-end space-x-2">
-							<button
-								class="text-blue-600 hover:text-blue-800"
-								on:click={() => (editingBanner = banner.id)}
-							>
-								Edit
-							</button>
-							<form method="POST" action="?/deleteBanner" use:enhance>
-								<input type="hidden" name="id" value={banner.id} />
-								<button type="submit" class="text-red-600 hover:text-red-800"> Delete </button>
-							</form>
+						<div class="mt-2 flex items-center justify-between">
+							<div class="flex flex-col gap-1 text-sm text-gray-500">
+								{#if banner.start_date}
+									<span
+										>From: {new Date(banner.start_date).toLocaleString(undefined, {
+											year: 'numeric',
+											month: 'short',
+											day: 'numeric',
+											hour: '2-digit',
+											minute: '2-digit'
+										})}</span
+									>
+								{/if}
+								{#if banner.end_date}
+									<span
+										>Until: {new Date(banner.end_date).toLocaleString(undefined, {
+											year: 'numeric',
+											month: 'short',
+											day: 'numeric',
+											hour: '2-digit',
+											minute: '2-digit'
+										})}</span
+									>
+								{/if}
+							</div>
+							<div class="mt-auto flex space-x-2">
+								<button
+									class="text-blue-600 hover:text-blue-800"
+									on:click={() => (editingBanner = banner.id)}
+								>
+									Edit
+								</button>
+								<form method="POST" action="?/deleteBanner" use:enhance>
+									<input type="hidden" name="id" value={banner.id} />
+									<button type="submit" class="text-red-600 hover:text-red-800">Delete</button>
+								</form>
+							</div>
 						</div>
 					</div>
 				{/each}
@@ -69,7 +95,7 @@
 		</div>
 
 		<!-- Links Section -->
-		<div class="rounded-lg bg-white p-6 shadow">
+		<div class="md:rounded-lg md:bg-white md:p-6 md:shadow">
 			<div class="mb-4 flex items-center justify-between">
 				<h2 class="text-xl font-bold">Links</h2>
 				<button
@@ -98,17 +124,43 @@
 						<h3 class="font-bold">{link.link_label}</h3>
 						<p class="text-sm text-gray-600">{link.link_url}</p>
 						<p class="text-sm text-gray-500">Order: {link.order}</p>
-						<div class="mt-2 flex justify-end space-x-2">
-							<button
-								class="text-blue-600 hover:text-blue-800"
-								on:click={() => (editingLink = link.id)}
-							>
-								Edit
-							</button>
-							<form method="POST" action="?/deleteLink" use:enhance>
-								<input type="hidden" name="id" value={link.id} />
-								<button type="submit" class="text-red-600 hover:text-red-800"> Delete </button>
-							</form>
+						<div class="mt-2 flex items-center justify-between">
+							<div class="flex flex-col gap-1 text-sm text-gray-500">
+								{#if link.start_date}
+									<span
+										>From: {new Date(link.start_date).toLocaleString(undefined, {
+											year: 'numeric',
+											month: 'short',
+											day: 'numeric',
+											hour: '2-digit',
+											minute: '2-digit'
+										})}</span
+									>
+								{/if}
+								{#if link.end_date}
+									<span
+										>Until: {new Date(link.end_date).toLocaleString(undefined, {
+											year: 'numeric',
+											month: 'short',
+											day: 'numeric',
+											hour: '2-digit',
+											minute: '2-digit'
+										})}</span
+									>
+								{/if}
+							</div>
+							<div class="mt-auto flex space-x-2">
+								<button
+									class="text-blue-600 hover:text-blue-800"
+									on:click={() => (editingLink = link.id)}
+								>
+									Edit
+								</button>
+								<form method="POST" action="?/deleteLink" use:enhance>
+									<input type="hidden" name="id" value={link.id} />
+									<button type="submit" class="text-red-600 hover:text-red-800">Delete</button>
+								</form>
+							</div>
 						</div>
 					</div>
 				{/each}
@@ -116,7 +168,7 @@
 		</div>
 
 		<!-- Link Stats Section -->
-		<div class="rounded-lg bg-white p-6 shadow md:col-span-2">
+		<div class="md:rounded-lg md:bg-white md:p-6 md:shadow">
 			<h2 class="mb-4 text-xl font-bold">Link Statistics</h2>
 			<div class="overflow-x-auto">
 				<table class="min-w-full">
