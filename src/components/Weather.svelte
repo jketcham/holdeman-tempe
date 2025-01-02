@@ -49,8 +49,8 @@
 	}, 1000);
 
 	onMount(() => {
-		// Update weather every 5 minutes
-		const weatherInterval = setInterval(fetchWeather, 5 * 60 * 1000);
+		// Update weather every 10 minutes
+		const weatherInterval = setInterval(fetchWeather, 10 * 60 * 1000);
 		return () => clearInterval(weatherInterval);
 	});
 
@@ -63,10 +63,10 @@
 	$: localTime = formatTime(currentTime);
 </script>
 
-<div class="text-sm mt-2 flex flex-col md:flex-row md:items-center border-b border-black pb-1">
+<div class="mt-2 flex flex-col border-b border-black pb-1 text-sm md:flex-row md:items-center">
 	<span>{localTime}</span>
 	{#if temperature !== null && conditions}
-		<span class="hidden md:inline mx-2">•</span>
+		<span class="mx-2 hidden md:inline">•</span>
 		<span>It's {formattedTemp} and {conditions.toLowerCase()} in Holdeman</span>
 	{/if}
 </div>
