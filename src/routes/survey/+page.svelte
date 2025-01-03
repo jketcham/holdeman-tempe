@@ -1,27 +1,30 @@
-<script>
+<script lang="ts">
 	import Container from '../../components/Container.svelte';
+	import SEO from '../../components/SEO.svelte';
+	import type { PageMetadata } from '$lib/types/metadata';
+
+	const pageMetadata: PageMetadata = {
+		title: 'Project Ideas',
+		description:
+			'Help choose our next neighborhood grant project! Share your ideas and preferences for improving our community.',
+		type: 'article',
+		publishedAt: '2024-01-02T00:00:00Z',
+		modifiedAt: '2024-01-02T00:00:00Z'
+	};
 </script>
 
-<svelte:head>
-	<title>Project Ideas – Holdeman Neighborhood Association</title>
-	<meta
-		name="description"
-		content="Help choose our next neighborhood grant project! Share your ideas and preferences for improving our community."
-	/>
-	<meta name="twitter:label1" content="Survey Deadline" />
-	<meta name="twitter:data1" content="January 24th" />
-</svelte:head>
+<SEO metadata={pageMetadata} />
 
-<Container class="mt-4 mb-10">
-	<div class="flex flex-col text-center pb-4">
-		<h1 class="text-3xl mb-2 font-display font-bold uppercase">Project Ideas</h1>
+<Container class="mb-10 mt-4">
+	<div class="flex flex-col pb-4 text-center">
+		<h1 class="mb-2 font-display text-3xl font-bold uppercase">Project Ideas</h1>
 		<h2 class="text-lg">2025–2026 Neighborhood Grant</h2>
 		<h2 class="text-lg text-neutral-500">Share Your Vision for Holdeman</h2>
 	</div>
 
 	<hr />
 
-	<h1 class="pt-5 pb-1.5 text-left text-2xl">
+	<h1 class="pb-1.5 pt-5 text-left text-2xl">
 		<span>Background</span>
 	</h1>
 	<p class="py-0">
@@ -36,7 +39,7 @@
 		><span>, and we want your input on what our next project should be!</span>
 	</p>
 
-	<h1 class="pt-5 pb-1.5 text-left text-2xl">
+	<h1 class="pb-1.5 pt-5 text-left text-2xl">
 		<span>Selection Process</span>
 	</h1>
 	<p class="py-0">
@@ -44,7 +47,7 @@
 	</p>
 
 	<div class="my-4 space-y-4">
-		<div class="bg-holdeman/10 p-4 rounded">
+		<div class="rounded bg-holdeman/10 p-4">
 			<h3 class="font-bold">Phase 1: Share Your Ideas</h3>
 			<p>
 				January 2–24: Submit your preferred project type and up to three ideas for neighborhood
@@ -52,7 +55,7 @@
 			</p>
 		</div>
 
-		<div class="bg-holdeman/10 p-4 rounded">
+		<div class="rounded bg-holdeman/10 p-4">
 			<h3 class="font-bold">Phase 2: Vote on Top Ideas</h3>
 			<p>
 				January 31–February 21: After reviewing all submissions, we'll create a follow-up survey
@@ -61,11 +64,11 @@
 		</div>
 	</div>
 
-	<h1 class="pt-5 pb-1.5 text-left text-2xl">
+	<h1 class="pb-1.5 pt-5 text-left text-2xl">
 		<span>Project Requirements</span>
 	</h1>
 	<p class="py-0">All grant projects must:</p>
-	<ul class="list-disc ml-8 my-4 space-y-2">
+	<ul class="my-4 ml-8 list-disc space-y-2">
 		<li>Be completed within one year of being funded (by June 2026)</li>
 		<li>Fit within a $20,000 budget (the grant's maximum award)</li>
 	</ul>
@@ -76,8 +79,8 @@
 		budget, etc.
 	</p>
 
-	<div class="bg-holdeman/10 p-6 rounded-lg my-8 text-center">
-		<h2 class="text-xl font-bold mb-4">Share Your Ideas!</h2>
+	<div class="my-8 rounded-lg bg-holdeman/10 p-6 text-center">
+		<h2 class="mb-4 text-xl font-bold">Share Your Ideas!</h2>
 		<p class="mb-4">
 			Help shape the future of our neighborhood by submitting your project ideas and preferences.
 		</p>
@@ -86,25 +89,25 @@
 			target="_blank"
 			rel="noopener"
 		>
-			<button class="bg-holdeman-400 px-6 py-4 rounded font-bold hover:bg-holdeman-500 transition">
+			<button class="rounded bg-holdeman-400 px-6 py-4 font-bold transition hover:bg-holdeman-500">
 				Take the Survey
 			</button>
 		</a>
 	</div>
 
-	<h1 class="pt-5 pb-1.5 text-left text-2xl">
+	<h1 class="pb-1.5 pt-5 text-left text-2xl">
 		<span>Example Project Ideas</span>
 	</h1>
 	<p class="py-0 italic">Here are a few possibilities to inspire you:</p>
-	<div class="space-y-8 my-6">
-		<div class="grid md:grid-cols-2 gap-4 items-start">
+	<div class="my-6 space-y-8">
+		<div class="grid items-start gap-4 md:grid-cols-2">
 			<picture>
 				<source srcset="images/tree-planting.webp" type="image/webp" />
 				<img
 					alt="Trees providing shade along a neighborhood street"
 					loading="lazy"
 					src="images/tree-planting.jpg"
-					class="rounded-lg w-full h-48 object-cover"
+					class="h-48 w-full rounded-lg object-cover"
 				/>
 			</picture>
 			<div class="md:pt-2">
@@ -112,14 +115,14 @@
 			</div>
 		</div>
 
-		<div class="grid md:grid-cols-2 gap-4 items-start">
+		<div class="grid items-start gap-4 md:grid-cols-2">
 			<picture>
 				<source srcset="images/bioswale.webp" type="image/webp" />
 				<img
 					alt="Native plants in a stormwater basin"
 					loading="lazy"
 					src="images/bioswale.jpg"
-					class="rounded-lg w-full h-48 object-cover"
+					class="h-48 w-full rounded-lg object-cover"
 				/>
 			</picture>
 			<div class="md:pt-2">
@@ -127,14 +130,14 @@
 			</div>
 		</div>
 
-		<div class="grid md:grid-cols-2 gap-4 items-start">
+		<div class="grid items-start gap-4 md:grid-cols-2">
 			<picture>
 				<source srcset="images/traffic-circle.webp" type="image/webp" />
 				<img
 					alt="Traffic circle with plants"
 					loading="lazy"
 					src="images/traffic-circle.jpg"
-					class="rounded-lg w-full h-48 object-cover"
+					class="h-48 w-full rounded-lg object-cover"
 				/>
 			</picture>
 			<div class="md:pt-2">
@@ -142,14 +145,14 @@
 			</div>
 		</div>
 
-		<div class="grid md:grid-cols-2 gap-4 items-start">
+		<div class="grid items-start gap-4 md:grid-cols-2">
 			<picture>
 				<source srcset="images/public-art.webp" type="image/webp" />
 				<img
 					alt="Public art installation in a median"
 					loading="lazy"
 					src="images/public-art.jpg"
-					class="rounded-lg w-full h-48 object-cover"
+					class="h-48 w-full rounded-lg object-cover"
 				/>
 			</picture>
 			<div class="md:pt-2">
@@ -160,14 +163,14 @@
 			</div>
 		</div>
 
-		<div class="grid md:grid-cols-2 gap-4 items-start">
+		<div class="grid items-start gap-4 md:grid-cols-2">
 			<picture>
 				<source srcset="images/wall-mural.webp" type="image/webp" />
 				<img
 					alt="Colorful mural on a residential wall"
 					loading="lazy"
 					src="images/wall-mural.jpg"
-					class="rounded-lg w-full h-48 object-cover"
+					class="h-48 w-full rounded-lg object-cover"
 				/>
 			</picture>
 			<div class="md:pt-2">
@@ -176,7 +179,7 @@
 		</div>
 	</div>
 
-	<div class="mt-8 mb-10">
+	<div class="mb-10 mt-8">
 		<h2 class="text-2xl">Stay Updated</h2>
 
 		<p class="my-4">
@@ -186,7 +189,7 @@
 		<div class="flex justify-center">
 			<a class="text-inherit no-underline" href="https://holdemantempe.org/newsletter">
 				<button
-					class="bg-holdeman-400 px-6 py-4 rounded font-bold hover:bg-holdeman-500 transition"
+					class="rounded bg-holdeman-400 px-6 py-4 font-bold transition hover:bg-holdeman-500"
 				>
 					Newsletter signup
 				</button>
