@@ -1,4 +1,4 @@
-import type { Link, BannerUpdate } from './types';
+import type { Link, BannerUpdate, LinkStats } from './types';
 import type { D1Database } from '@cloudflare/workers-types';
 
 const ACTIVE_LINKS_QUERY = `
@@ -95,7 +95,7 @@ export async function getLinkStats(db: D1Database) {
 			ORDER BY click_count DESC
 		`
 		)
-		.all();
+		.all<LinkStats>();
 }
 
 export async function getLinks(db: D1Database, page = 1, perPage = 10) {

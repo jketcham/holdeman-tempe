@@ -2,6 +2,7 @@
 	import { enhance } from '$app/forms';
 	import { invalidate } from '$app/navigation';
 	import type { BannerUpdate } from '$lib/types';
+	import { fromSQLiteDateTime } from '$lib/utils/dates';
 
 	export let banner: Partial<BannerUpdate> = {};
 	export let action = '?/createBanner';
@@ -79,7 +80,7 @@
 				type="datetime-local"
 				id="start_date"
 				name="start_date"
-				value={banner.start_date?.slice(0, 16) ?? ''}
+				value={fromSQLiteDateTime(banner.start_date ?? null) ?? ''}
 				class="w-full rounded border border-gray-300 px-3 py-2 focus:border-holdeman focus:ring-1 focus:ring-holdeman"
 			/>
 		</div>
@@ -89,7 +90,7 @@
 				type="datetime-local"
 				id="end_date"
 				name="end_date"
-				value={banner.end_date?.slice(0, 16) ?? ''}
+				value={fromSQLiteDateTime(banner.end_date ?? null) ?? ''}
 				class="w-full rounded border border-gray-300 px-3 py-2 focus:border-holdeman focus:ring-1 focus:ring-holdeman"
 			/>
 		</div>

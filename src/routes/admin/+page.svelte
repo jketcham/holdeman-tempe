@@ -4,6 +4,7 @@
 	import { page } from '$app/stores';
 	import { goto } from '$app/navigation';
 	import type { PageData } from './$types';
+	import { formatDate, fromSQLiteDateTime } from '$lib/utils/dates';
 	import BannerForm from '../../components/BannerForm.svelte';
 	import LinkForm from '../../components/LinkForm.svelte';
 	import Pagination from '../../components/Pagination.svelte';
@@ -76,7 +77,7 @@
 							<div class="flex flex-col gap-1 text-sm text-gray-500">
 								{#if banner.start_date}
 									<span
-										>From: {new Date(banner.start_date).toLocaleString(undefined, {
+										>From: {formatDate(banner.start_date, {
 											year: 'numeric',
 											month: 'short',
 											day: 'numeric',
@@ -87,7 +88,7 @@
 								{/if}
 								{#if banner.end_date}
 									<span
-										>Until: {new Date(banner.end_date).toLocaleString(undefined, {
+										>Until: {formatDate(banner.end_date, {
 											year: 'numeric',
 											month: 'short',
 											day: 'numeric',
@@ -157,7 +158,7 @@
 							<div class="flex flex-col gap-1 text-sm text-gray-500">
 								{#if link.start_date}
 									<span
-										>From: {new Date(link.start_date).toLocaleString(undefined, {
+										>From: {formatDate(link.start_date, {
 											year: 'numeric',
 											month: 'short',
 											day: 'numeric',
@@ -168,7 +169,7 @@
 								{/if}
 								{#if link.end_date}
 									<span
-										>Until: {new Date(link.end_date).toLocaleString(undefined, {
+										>Until: {formatDate(link.end_date, {
 											year: 'numeric',
 											month: 'short',
 											day: 'numeric',
@@ -225,14 +226,7 @@
 								<td class="py-2 text-right">{stat.click_count}</td>
 								<td class="py-2 text-right">
 									{#if stat.last_clicked}
-										{new Date(stat.last_clicked).toLocaleString(undefined, {
-											year: 'numeric',
-											month: 'short',
-											day: 'numeric',
-											hour: '2-digit',
-											minute: '2-digit',
-											timeZoneName: 'short'
-										})}
+										{formatDate(stat.last_clicked)}
 									{:else}
 										Never
 									{/if}

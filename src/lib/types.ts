@@ -20,3 +20,11 @@ export type BannerUpdate = {
 	start_date: string | null;
 	end_date: string | null;
 };
+
+export type LinkStats = {
+	id: number;
+	link_label: string;
+	link_url: string;
+	click_count: number;
+	last_clicked: string | null;
+};

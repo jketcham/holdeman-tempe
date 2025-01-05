@@ -1,5 +1,6 @@
 import { error, fail } from '@sveltejs/kit';
 import type { Actions, PageServerLoad } from './$types';
+import { toSQLiteDateTime } from '$lib/utils/dates';
 import {
 	createBannerUpdate,
 	createLink,
@@ -55,8 +56,8 @@ export const actions: Actions = {
 			content,
 			link_url,
 			link_label,
-			start_date: start_date ? new Date(start_date).toISOString() : null,
-			end_date: end_date ? new Date(end_date).toISOString() : null
+			start_date: start_date ? toSQLiteDateTime(start_date) : null,
+			end_date: end_date ? toSQLiteDateTime(end_date) : null
 		});
 
 		return { success: true };
@@ -82,8 +83,8 @@ export const actions: Actions = {
 			link_url,
 			link_label,
 			order,
-			start_date: start_date ? new Date(start_date).toISOString() : null,
-			end_date: end_date ? new Date(end_date).toISOString() : null
+			start_date: start_date ? toSQLiteDateTime(start_date) : null,
+			end_date: end_date ? toSQLiteDateTime(end_date) : null
 		});
 
 		return { success: true };
@@ -112,8 +113,8 @@ export const actions: Actions = {
 			content,
 			link_url,
 			link_label,
-			start_date: start_date ? new Date(start_date).toISOString() : null,
-			end_date: end_date ? new Date(end_date).toISOString() : null
+			start_date: start_date ? toSQLiteDateTime(start_date) : null,
+			end_date: end_date ? toSQLiteDateTime(end_date) : null
 		});
 
 		return { success: true };
@@ -140,8 +141,8 @@ export const actions: Actions = {
 			link_url,
 			link_label,
 			order,
-			start_date: start_date ? new Date(start_date).toISOString() : null,
-			end_date: end_date ? new Date(end_date).toISOString() : null
+			start_date: start_date ? toSQLiteDateTime(start_date) : null,
+			end_date: end_date ? toSQLiteDateTime(end_date) : null
 		});
 
 		return { success: true };
