@@ -4,6 +4,7 @@
 	import { page } from '$app/stores';
 	import { goto } from '$app/navigation';
 	import type { PageData } from './$types';
+	import type { ActionResult } from '@sveltejs/kit';
 	import { formatDate, fromSQLiteDateTime } from '$lib/utils/dates';
 	import BannerForm from '../../components/BannerForm.svelte';
 	import LinkForm from '../../components/LinkForm.svelte';
@@ -17,6 +18,20 @@
 	let editingBanner: number | null = null;
 	let currentBannerPage = parseInt($page.url.searchParams.get('bannerPage') || '1');
 	let currentLinkPage = parseInt($page.url.searchParams.get('linkPage') || '1');
+
+	function getDeleteEnhance(type: 'link' | 'banner', label: string) {
+		return ({ cancel }: { cancel: () => void }) => {
+			if (!confirm(`Are you sure you want to delete this ${type}: "${label}"?`)) {
+				cancel();
+				return;
+			}
+			return async ({ result }: { result: ActionResult }) => {
+				if (result.type === 'success') {
+					await invalidate(type === 'link' ? 'app:links' : 'app:banners');
+				}
+			};
+		};
+	}
 
 	async function handleBannerPageChange(page: number) {
 		currentBannerPage = page;
@@ -105,7 +120,11 @@
 								>
 									Edit
 								</button>
-								<form method="POST" action="?/deleteBanner" use:enhance>
+								<form
+									method="POST"
+									action="?/deleteBanner"
+									use:enhance={getDeleteEnhance('banner', banner.title)}
+								>
 									<input type="hidden" name="id" value={banner.id} />
 									<button type="submit" class="text-red-600 hover:text-red-800">Delete</button>
 								</form>
@@ -186,7 +205,11 @@
 								>
 									Edit
 								</button>
-								<form method="POST" action="?/deleteLink" use:enhance>
+								<form
+									method="POST"
+									action="?/deleteLink"
+									use:enhance={getDeleteEnhance('link', link.link_label)}
+								>
 									<input type="hidden" name="id" value={link.id} />
 									<button type="submit" class="text-red-600 hover:text-red-800">Delete</button>
 								</form>
