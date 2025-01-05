@@ -20,7 +20,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'npm'
+          cache: "npm"
 
       # Step 3: Install dependencies
       - name: Install dependencies
@@ -40,7 +40,7 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          wranglerVersion: '3.99.0'
+          wranglerVersion: "3.99.0"
           command: d1 migrations apply holdeman --remote --env production
 
       # Step 6: Deploy to Cloudflare Pages

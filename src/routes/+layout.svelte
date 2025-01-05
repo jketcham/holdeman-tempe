@@ -1,28 +1,28 @@
 <script lang="ts">
-	import '../app.css';
-	import Navbar from '../components/Navbar.svelte';
-	import Container from '../components/Container.svelte';
-	import Footer from '../components/Footer.svelte';
+  import "../app.css";
+  import Navbar from "../components/Navbar.svelte";
+  import Container from "../components/Container.svelte";
+  import Footer from "../components/Footer.svelte";
 
-	export let data;
+  export let data;
 </script>
 
-<div class="min-h-screen flex flex-col">
-	<Navbar initialWeather={data.weather} />
+<div class="flex min-h-screen flex-col">
+  <Navbar initialWeather={data.weather} />
 
-	<main class="flex-grow">
-		<slot />
-	</main>
+  <main class="flex-grow">
+    <slot />
+  </main>
 
-	<Footer />
+  <Footer />
 </div>
 
 <style>
-	:global(html) {
-		height: 100%;
-	}
+  :global(html) {
+    height: 100%;
+  }
 
-	:global(body) {
-		height: 100%;
-	}
+  :global(body) {
+    height: 100%;
+  }
 </style>
