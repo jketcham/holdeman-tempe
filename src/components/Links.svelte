@@ -18,6 +18,7 @@
   }
 </script>
 
+<h2 class="mb-4 text-2xl font-bold">Quick Links</h2>
 <div class="space-y-4">
   {#each links as link}
     <a
