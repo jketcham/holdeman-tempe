@@ -11,6 +11,10 @@ import {
   getLinkStats,
   updateBannerUpdate,
   updateLink,
+  createEvent,
+  deleteEvent,
+  getEvents,
+  updateEvent,
 } from "$lib/db";
 
 export const load: PageServerLoad = async ({ platform, depends, url }) => {
@@ -20,17 +24,20 @@ export const load: PageServerLoad = async ({ platform, depends, url }) => {
 
   depends("app:links");
   depends("app:banners");
+  depends("app:events");
 
   const bannerPage = parseInt(url.searchParams.get("bannerPage") || "1");
   const linkPage = parseInt(url.searchParams.get("linkPage") || "1");
+  const eventPage = parseInt(url.searchParams.get("eventPage") || "1");
 
-  const [links, bannerUpdates, linkStats] = await Promise.all([
+  const [links, bannerUpdates, linkStats, events] = await Promise.all([
     getLinks(platform.env.DB, linkPage),
     getBannerUpdates(platform.env.DB, bannerPage),
     getLinkStats(platform.env.DB),
+    getEvents(platform.env.DB, eventPage),
   ]);
 
-  return { links, bannerUpdates, linkStats };
+  return { links, bannerUpdates, linkStats, events };
 };
 
 export const actions: Actions = {
@@ -177,6 +184,95 @@ export const actions: Actions = {
     }
 
     await deleteLink(platform.env.DB, id);
+    return { success: true };
+  },
+
+  createEvent: async ({ request, platform }) => {
+    if (!platform?.env?.DB) {
+      throw error(500, "Database not available");
+    }
+
+    const data = await request.formData();
+    const type = data.get("type") as "meeting" | "event";
+    const name = data.get("name") as string;
+    const description = data.get("description") as string;
+    const location = data.get("location")?.toString() || null;
+    const slug = data.get("slug") as string;
+    const start_date = data.get("start_date") as string;
+    const end_date = data.get("end_date") as string | null;
+
+    if (!type || !name || !description || !slug || !start_date) {
+      return fail(400, { message: "Missing required fields" });
+    }
+
+    const sqlStartDate = toSQLiteDateTime(start_date);
+    if (!sqlStartDate) {
+      return fail(400, { message: "Invalid start date format" });
+    }
+
+    await createEvent(platform.env.DB, {
+      type,
+      name,
+      description,
+      location,
+      slug,
+      start_date: sqlStartDate,
+      end_date: end_date ? toSQLiteDateTime(end_date) : null,
+    });
+
+    return { success: true };
+  },
+
+  updateEvent: async ({ request, platform }) => {
+    if (!platform?.env?.DB) {
+      throw error(500, "Database not available");
+    }
+
+    const data = await request.formData();
+    const id = parseInt(data.get("id") as string);
+    const type = data.get("type") as "meeting" | "event";
+    const name = data.get("name") as string;
+    const description = data.get("description") as string;
+    const location = data.get("location")?.toString() || null;
+    const slug = data.get("slug") as string;
+    const start_date = data.get("start_date") as string;
+    const end_date = data.get("end_date") as string | null;
+
+    if (!id || !type || !name || !description || !slug || !start_date) {
+      return fail(400, { message: "Missing required fields" });
+    }
+
+    const sqlStartDate = toSQLiteDateTime(start_date);
+    if (!sqlStartDate) {
+      return fail(400, { message: "Invalid start date format" });
+    }
+
+    await updateEvent(platform.env.DB, id, {
+      type,
+      name,
+      description,
+      location,
+      slug,
+      start_date: sqlStartDate,
+      end_date: end_date ? toSQLiteDateTime(end_date) : null,
+    });
+
+    return { success: true };
+  },
+
+  deleteEvent: async ({ request, platform }) => {
+    if (!platform?.env?.DB) {
+      throw error(500, "Database not available");
+    }
+
+    const data = await request.formData();
+    const id = parseInt(data.get("id") as string);
+
+    if (!id) {
+      return fail(400, { message: "ID is required" });
+    }
+
+    await deleteEvent(platform.env.DB, id);
     return { success: true };
   },
 };

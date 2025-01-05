@@ -8,7 +8,7 @@
 </script>
 
 <div class="flex min-h-screen flex-col">
-  <Navbar initialWeather={data.weather} />
+  <Navbar initialWeather={data.weather} nextEvent={data.nextEvent} />
 
   <main class="flex-grow">
     <slot />

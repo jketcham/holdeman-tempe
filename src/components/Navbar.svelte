@@ -1,8 +1,11 @@
 <script lang="ts">
   import Weather from "./Weather.svelte";
+  import NextEvent from "./NextEvent.svelte";
   import Container from "./Container.svelte";
+  import type { Event } from "$lib/types";
 
   export let initialWeather: { temperature: number; conditions: string } | null = null;
+  export let nextEvent: Event | null = null;
 </script>
 
 <div class="flex flex-col">
@@ -10,7 +13,7 @@
     <Container>
       <Weather {initialWeather} />
       <a href="/">
-        <div class="flex flex-col justify-between py-4 font-display uppercase sm:py-5 md:py-8">
+        <div class="flex flex-col justify-between py-5 font-display uppercase sm:py-5 md:py-8">
           <span class="mb-1 block text-3xl font-bold leading-7 sm:leading-9 md:mb-2 md:text-5xl"
             >Holdeman</span
           >
@@ -30,6 +33,7 @@
           </div>
         </div>
       </a>
+      <NextEvent {nextEvent} />
     </Container>
   </div>
 </div>

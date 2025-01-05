@@ -28,3 +28,17 @@ export type LinkStats = {
   click_count: number;
   last_clicked: string | null;
 };
+
+export type Event = {
+  id: number;
+  type: "meeting" | "event";
+  name: string;
+  description: string;
+  start_date: string;
+  end_date: string | null;
+  slug: string;
+  location: string | null;
+  created_at: string;
+  updated_at: string;
+  deleted_at: string | null;
+};

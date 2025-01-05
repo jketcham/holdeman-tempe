@@ -7,7 +7,6 @@ export function formatDate(dateString: string, options: Intl.DateTimeFormatOptio
 
   return date.toLocaleString(undefined, {
     timeZone: "America/Phoenix",
-    year: "numeric",
     month: "short",
     day: "numeric",
     hour: "2-digit",

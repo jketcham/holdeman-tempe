@@ -25,3 +25,21 @@ Survey open through **January 24th**.',
  'Take the Survey', 
  '2024-12-30 00:00:00', 
  '2025-01-24 23:59:59');
+
+-- Clear `events` table
+DELETE FROM events;
+
+-- Seed `events` table with a date that's always the next Jan 22 at 6pm Phoenix time (UTC-7)
+INSERT INTO events (type, name, description, location, slug, start_date)
+VALUES (
+  'meeting',
+  'Annual Meeting',
+  'Join us for our annual planning meeting where we''ll discuss neighborhood projects and priorities for the year.',
+  'Clark Park Community Center',
+  'annual-meeting',
+  CASE 
+    WHEN date('now') > date(strftime('%Y', 'now') || '-01-22')
+    THEN datetime(strftime('%Y', 'now', '+1 year') || '-01-23 01:00:00')  -- Jan 22, 6:00 PM MST = Jan 23, 1:00 AM UTC
+    ELSE datetime(strftime('%Y', 'now') || '-01-23 01:00:00')
+  END
+);

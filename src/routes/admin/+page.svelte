@@ -9,6 +9,7 @@
   import BannerForm from "../../components/BannerForm.svelte";
   import LinkForm from "../../components/LinkForm.svelte";
   import Pagination from "../../components/Pagination.svelte";
+  import EventForm from "../../components/EventForm.svelte";
 
   export let data: PageData;
 
@@ -18,8 +19,11 @@
   let editingBanner: number | null = null;
   let currentBannerPage = parseInt($page.url.searchParams.get("bannerPage") || "1");
   let currentLinkPage = parseInt($page.url.searchParams.get("linkPage") || "1");
+  let showNewEventForm = false;
+  let editingEvent: number | null = null;
+  let currentEventPage = parseInt($page.url.searchParams.get("eventPage") || "1");
 
-  function getDeleteEnhance(type: "link" | "banner", label: string) {
+  function getDeleteEnhance(type: "link" | "banner" | "event", label: string) {
     return ({ cancel }: { cancel: () => void }) => {
       if (!confirm(`Are you sure you want to delete this ${type}: "${label}"?`)) {
         cancel();
@@ -27,7 +31,9 @@
       }
       return async ({ result }: { result: ActionResult }) => {
         if (result.type === "success") {
-          await invalidate(type === "link" ? "app:links" : "app:banners");
+          await invalidate(
+            type === "link" ? "app:links" : type === "banner" ? "app:banners" : "app:events",
+          );
         }
       };
     };
@@ -47,6 +53,14 @@
     url.searchParams.set("linkPage", page.toString());
     await goto(url, { keepFocus: true });
     await invalidate("app:links");
+  }
+
+  async function handleEventPageChange(page: number) {
+    currentEventPage = page;
+    const url = new URL($page.url);
+    url.searchParams.set("eventPage", page.toString());
+    await goto(url, { keepFocus: true });
+    await invalidate("app:events");
   }
 </script>
 
@@ -258,6 +272,94 @@
             {/each}
           </tbody>
         </table>
+      </div>
+    </div>
+
+    <!-- Events Section -->
+    <div class="md:rounded-lg md:bg-white md:p-6 md:shadow">
+      <div class="mb-4 flex items-center justify-between">
+        <h2 class="text-xl font-bold">Events</h2>
+        <button
+          class="rounded bg-holdeman px-4 py-2 text-white"
+          on:click={() => (showNewEventForm = !showNewEventForm)}
+        >
+          {showNewEventForm ? "Cancel" : "New Event"}
+        </button>
+      </div>
+
+      {#if showNewEventForm}
+        <EventForm onSuccess={() => (showNewEventForm = false)} />
+      {/if}
+
+      {#if editingEvent}
+        <EventForm
+          event={data.events.events.find((e) => e.id === editingEvent)}
+          action="?/updateEvent"
+          onSuccess={() => (editingEvent = null)}
+        />
+      {/if}
+
+      <div class="space-y-4">
+        {#each data.events.events as event}
+          <div class="rounded border p-4">
+            <div class="flex items-center justify-between">
+              <h3 class="font-bold">{event.name}</h3>
+              <span class="rounded-full bg-gray-200 px-2 py-1 text-sm capitalize">{event.type}</span>
+            </div>
+            <p class="mt-2 text-sm text-gray-600">{event.description}</p>
+            {#if event.location}
+              <p class="mt-1 text-sm text-gray-500">📍 {event.location}</p>
+            {/if}
+            <div class="mt-2 flex items-center justify-between">
+              <div class="flex flex-col gap-1 text-sm text-gray-500">
+                <span>
+                  From: {formatDate(event.start_date, {
+                    year: "numeric",
+                    month: "short",
+                    day: "numeric",
+                    hour: "2-digit",
+                    minute: "2-digit",
+                  })}
+                </span>
+                {#if event.end_date}
+                  <span>
+                    Until: {formatDate(event.end_date, {
+                      year: "numeric",
+                      month: "short",
+                      day: "numeric",
+                      hour: "2-digit",
+                      minute: "2-digit",
+                    })}
+                  </span>
+                {/if}
+              </div>
+              <div class="mt-auto flex space-x-2">
+                <button
+                  class="text-blue-600 hover:text-blue-800"
+                  on:click={() => (editingEvent = event.id)}
+                >
+                  Edit
+                </button>
+                <form
+                  method="POST"
+                  action="?/deleteEvent"
+                  use:enhance={getDeleteEnhance("event", event.name)}
+                >
+                  <input type="hidden" name="id" value={event.id} />
+                  <button type="submit" class="text-red-600 hover:text-red-800">Delete</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        {/each}
+      </div>
+
+      <div class="mt-4">
+        <Pagination
+          currentPage={currentEventPage}
+          totalPages={data.events.totalPages}
+          onPageChange={handleEventPageChange}
+        />
       </div>
     </div>
   </div>

@@ -1,4 +1,4 @@
-import type { Link, BannerUpdate, LinkStats } from "./types";
+import type { Link, BannerUpdate, LinkStats, Event } from "./types";
 import type { D1Database } from "@cloudflare/workers-types";
 
 const ACTIVE_LINKS_QUERY = `
@@ -188,4 +188,94 @@ export async function updateBannerUpdate(
     .prepare(query)
     .bind(...Object.values(data), id)
     .run();
+}
+
+export async function getEvents(db: D1Database, page = 1, perPage = 10) {
+  const offset = (page - 1) * perPage;
+  const results = await db
+    .prepare(
+      `
+      SELECT * FROM events
+      WHERE deleted_at IS NULL
+      ORDER BY start_date DESC
+      LIMIT ? OFFSET ?
+    `,
+    )
+    .bind(perPage, offset)
+    .all<Event>();
+
+  const total = await db
+    .prepare("SELECT COUNT(*) as count FROM events WHERE deleted_at IS NULL")
+    .first<{ count: number }>();
+
+  return {
+    events: results.results,
+    totalPages: Math.ceil((total?.count || 0) / perPage),
+  };
+}
+
+export async function createEvent(
+  db: D1Database,
+  data: Omit<Event, "id" | "created_at" | "updated_at" | "deleted_at">,
+) {
+  return await db
+    .prepare(
+      `
+      INSERT INTO events (type, name, description, start_date, end_date, slug, location)
+      VALUES (?, ?, ?, ?, ?, ?, ?)
+    `,
+    )
+    .bind(
+      data.type,
+      data.name,
+      data.description,
+      data.start_date,
+      data.end_date,
+      data.slug,
+      data.location,
+    )
+    .run();
+}
+
+export async function updateEvent(
+  db: D1Database,
+  id: number,
+  data: {
+    type: "meeting" | "event";
+    name: string;
+    description: string;
+    location: string | null;
+    slug: string;
+    start_date: string;
+    end_date: string | null;
+  },
+) {
+  const sets = Object.keys(data)
+    .map((key) => `${key} = ?`)
+    .join(", ");
+  const query = `UPDATE events SET ${sets}, updated_at = CURRENT_TIMESTAMP WHERE id = ?`;
+  return await db
+    .prepare(query)
+    .bind(...Object.values(data), id)
+    .run();
+}
+
+export async function deleteEvent(db: D1Database, id: number) {
+  return await db
+    .prepare("UPDATE events SET deleted_at = CURRENT_TIMESTAMP WHERE id = ?")
+    .bind(id)
+    .run();
+}
+
+export async function getNextEvent(db: D1Database) {
+  const result = await db
+    .prepare(
+      `SELECT * FROM events 
+       WHERE start_date > datetime('now') 
+       AND deleted_at IS NULL 
+       ORDER BY start_date ASC 
+       LIMIT 1`,
+    )
+    .first<Event>();
+  return result || null;
 }
