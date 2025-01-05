@@ -6,10 +6,10 @@ export const siteMetadata: SiteMetadata = {
 	defaultTitle: 'Holdeman Neighborhood Association',
 	defaultDescription:
 		'The official website of the Holdeman Neighborhood Association in Tempe, Arizona.',
-	defaultImage: '/images/image2.png',
+	defaultImage: '/images/default-site-preview.png',
 	organization: {
 		name: 'Holdeman Neighborhood Association',
 		url: 'https://holdemantempe.org',
-		logo: '/images/logo.png'
+		logo: 'https://holdemantempe.org/images/images/logo.png'
 	}
 };

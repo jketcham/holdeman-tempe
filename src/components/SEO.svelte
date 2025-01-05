@@ -61,7 +61,10 @@
 	<meta property="og:title" content={fullTitle} />
 	<meta property="og:description" content={metadata.description} />
 	<meta property="og:type" content={metadata.type || 'website'} />
-	<meta property="og:image" content={metadata.image || siteMetadata.defaultImage} />
+	<meta
+		property="og:image"
+		content={`${siteMetadata.siteUrl}${metadata.image || siteMetadata.defaultImage}`}
+	/>
 
 	<!-- Twitter -->
 	<meta name="twitter:card" content="summary_large_image" />
@@ -70,7 +73,10 @@
 	{/if}
 	<meta name="twitter:title" content={fullTitle} />
 	<meta name="twitter:description" content={metadata.description} />
-	<meta name="twitter:image" content={metadata.image || siteMetadata.defaultImage} />
+	<meta
+		name="twitter:image"
+		content={`${siteMetadata.siteUrl}${metadata.image || siteMetadata.defaultImage}`}
+	/>
 
 	<!-- JSON-LD -->
 	{@html `<script type="application/ld+json">${JSON.stringify(jsonLd)}</script>`}
