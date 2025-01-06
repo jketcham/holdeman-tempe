@@ -34,7 +34,7 @@
   {/if}
 
   {#if updatedAt}
-    <div class="mt-4 text-sm italic text-neutral-500">
+    <div class="mt-4 text-sm italic text-neutral-600">
       Updated {formatDate(updatedAt)}
     </div>
   {/if}

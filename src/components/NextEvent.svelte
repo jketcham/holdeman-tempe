@@ -22,7 +22,7 @@
 </script>
 
 {#if nextEvent}
-  <div class="flex flex-col border-t border-black py-1.5 text-sm">
+  <div class="flex flex-col border-t border-black py-1.5">
     <div class="flex flex-col md:flex-row md:items-center">
       <span class="font-bold md:inline">Next event:</span>
       <span class="md:ml-1">{nextEvent.name}</span>
