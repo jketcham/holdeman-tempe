@@ -206,13 +206,6 @@
     vertical-align: baseline;
     font-style: normal;
   }
-  .c17 {
-    padding-top: 0pt;
-    padding-bottom: 0pt;
-    orphans: 2;
-    widows: 2;
-    text-align: center;
-  }
   .c1 {
     padding-top: 0pt;
     padding-bottom: 0pt;
