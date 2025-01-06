@@ -5,6 +5,10 @@ node_modules
 .vercel
 /.svelte-kit
 /build
+/coverage
+/playwright-report
+/test-results
+/tests-examples
 
 # OS
 .DS_Store
@@ -22,3 +26,8 @@ vite.config.ts.timestamp-*
 
 # Wrangler
 .wrangler
+
+# Test artifacts
+*.spec.js.snap
+*.test.js.snap
+/playwright/.cache/
