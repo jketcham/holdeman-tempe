@@ -18,6 +18,22 @@ const config = {
         configPath: "wrangler.toml",
       },
     }),
+    csp: {
+      mode: "auto",
+      directives: {
+        "default-src": ["self"],
+        "script-src": ["self"],
+        "style-src": ["self", "unsafe-inline"], // Required for Tailwind
+        "img-src": ["self", "data:"], // For local images and data URIs
+        "font-src": ["self"], // For local fonts
+        "connect-src": ["self"], // For API calls
+        "form-action": ["self"], // For forms
+        "frame-ancestors": ["none"], // Prevent framing
+        "base-uri": ["self"], // Restrict base URI
+        "object-src": ["none"], // Prevent object/embed
+        "upgrade-insecure-requests": true, // Force HTTPS
+      },
+    },
   },
 };
 

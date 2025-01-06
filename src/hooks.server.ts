@@ -1,23 +1,12 @@
 import { redirect, type Handle } from "@sveltejs/kit";
 import { sequence } from "@sveltejs/kit/hooks";
 import { env } from "$env/dynamic/private";
-import { cspDirectives, securityHeaders } from "$lib/config/security";
+import { securityHeaders } from "$lib/config/security";
 
 const securityMiddleware: Handle = async ({ event, resolve }) => {
-  // Generate CSP string
-  const csp = Object.entries(cspDirectives)
-    .map(([key, values]) => {
-      if (values.length === 0) return key;
-      return `${key} ${values.join(" ")}`;
-    })
-    .join("; ");
-
   const response = await resolve(event);
 
-  // Add CSP header
-  response.headers.set("Content-Security-Policy", csp);
-
-  // Add other security headers
+  // Add non-CSP security headers
   Object.entries(securityHeaders).forEach(([header, value]) => {
     response.headers.set(header, value);
   });
