@@ -1,0 +1,21 @@
+rules:
+  - package-ecosystem: npm
+    patterns:
+      - "*"
+    conditions:
+      - type: "vulnerability"
+        severity: ["critical", "high"]
+    actions:
+      create_pull_request:
+        priority: high
+        labels: ["security", "auto-approved"]
+
+  - package-ecosystem: npm
+    patterns:
+      - "*"
+    conditions:
+      - type: "vulnerability"
+        severity: ["moderate", "low"]
+    actions:
+      create_issue:
+        labels: ["security", "needs-triage"]
