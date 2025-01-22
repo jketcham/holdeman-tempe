@@ -62,10 +62,12 @@
   $: localTime = formatTime(currentTime);
 </script>
 
-<div class="mt-2 flex flex-col border-b border-black pb-1 text-sm md:flex-row md:items-center">
-  <span>{localTime}</span>
-  {#if temperature !== null && conditions}
-    <span class="mx-2 hidden md:inline">•</span>
-    <span>It's {formattedTemp} and {conditions.toLowerCase()} in Holdeman</span>
-  {/if}
+<div class="hidden md:block">
+  <div class="mt-2 flex flex-col border-b border-black pb-1 text-sm md:flex-row md:items-center">
+    <span>{localTime}</span>
+    {#if temperature !== null && conditions}
+      <span class="mx-2 hidden md:inline">•</span>
+      <span>It's {formattedTemp} and {conditions.toLowerCase()} in Holdeman</span>
+    {/if}
+  </div>
 </div>

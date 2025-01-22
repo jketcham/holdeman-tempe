@@ -28,13 +28,11 @@
       <span class="md:ml-1">{nextEvent.name}</span>
       {#if nextEvent.location}
         <span class="md:ml-1">
-          <span class="md:hidden">📍</span>
           <span class="hidden md:inline">@</span>
           {nextEvent.location}
         </span>
       {/if}
       <span class="md:ml-1">
-        <span class="md:hidden">🗓️</span>
         <span class="hidden md:inline">on</span>
         {formattedDate}
       </span>
