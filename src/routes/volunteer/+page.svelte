@@ -83,6 +83,9 @@
         <li>All volunteers must sign a waiver (provided at the event)</li>
         <li>No prior painting experience required - all materials will be provided</li>
         <li>Time slots are approximately 2 hours</li>
+        <li>
+          The closest restrooms are at Clark Park Community Center, about a 5-6 minute walk away
+        </li>
       </ul>
     </div>
 
