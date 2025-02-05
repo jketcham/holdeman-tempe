@@ -41,6 +41,17 @@
     </p>
   </div>
 
+  <div class="my-8 rounded-lg border border-neutral-200">
+    <picture>
+      <img
+        src="/images/Hardy-Art-Guide.png"
+        alt="Hardy Drive bike lane mural design guide"
+        class="w-full rounded-lg"
+        loading="lazy"
+      />
+    </picture>
+  </div>
+
   <div class="my-8 rounded-lg bg-holdeman/10 p-6">
     <h2 class="mb-4 text-xl font-bold">Project Timeline</h2>
     <div class="space-y-4">
@@ -102,6 +113,29 @@
     >
       Sign Up to Volunteer
     </a>
+  </div>
+
+  <div class="my-8 space-y-8">
+    <div class="grid gap-4 md:grid-cols-2">
+      <picture>
+        <source srcset="/images/image1.webp" type="image/webp" />
+        <img
+          src="/images/image1.jpg"
+          alt="Hardy Drive bike lane mural design - first section"
+          class="w-full rounded-lg"
+          loading="lazy"
+        />
+      </picture>
+      <picture>
+        <source srcset="/images/image3.webp" type="image/webp" />
+        <img
+          src="/images/image3.jpg"
+          alt="Hardy Drive bike lane mural design - second section"
+          class="w-full rounded-lg"
+          loading="lazy"
+        />
+      </picture>
+    </div>
   </div>
 
   <div class="mt-8">
