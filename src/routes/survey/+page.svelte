@@ -4,22 +4,22 @@
   import type { PageMetadata } from "$lib/types/metadata";
 
   const pageMetadata: PageMetadata = {
-    title: "Project Ideas",
+    title: "Project Selection",
     description:
-      "Help choose our next neighborhood grant project! Share your ideas and preferences for improving our community.",
+      "Help choose our next neighborhood grant project! Vote on the top project ideas for improving our community.",
     type: "article",
     publishedAt: "2024-01-02T00:00:00Z",
-    modifiedAt: "2024-01-02T00:00:00Z",
+    modifiedAt: "2024-02-01T00:00:00Z",
   };
 </script>
 
 <SEO metadata={pageMetadata} />
 
 <Container class="mb-10 mt-4">
-  <div class="flex flex-col pb-4 text-center">
-    <h1 class="mb-2 font-display text-3xl font-bold uppercase">Project Ideas</h1>
+  <div class="flex flex-col py-8 text-center">
+    <h1 class="mb-2 font-display text-3xl font-bold uppercase">Project Selection</h1>
     <h2 class="text-lg">2025–2026 Neighborhood Grant</h2>
-    <h2 class="text-lg text-neutral-500">Share Your Vision for Holdeman</h2>
+    <h2 class="text-lg text-neutral-500">Vote on Our Next Project</h2>
   </div>
 
   <hr />
@@ -40,26 +40,34 @@
   </p>
 
   <h1 class="pb-1.5 pt-5 text-left text-2xl">
-    <span>Selection Process</span>
+    <span>Selection Process Update</span>
   </h1>
   <p class="py-0">
-    <span>We're using a two-phase process to select our next project:</span>
+    <span>We've completed the first phase of our project selection process:</span>
   </p>
 
   <div class="my-4 space-y-4">
     <div class="rounded bg-holdeman/10 p-4">
-      <h3 class="font-bold">Phase 1: Share Your Ideas</h3>
+      <h3 class="font-bold">Phase 1: Completed ✓</h3>
       <p>
-        January 2–24: Submit your preferred project type and up to three ideas for neighborhood
-        improvements through our survey.
+        In January, we collected project ideas through our initial survey and held a neighborhood
+        meeting to discuss possibilities. Three main themes emerged as priorities:
       </p>
+      <ul class="ml-6 mt-2 list-disc space-y-1">
+        <li>Tree planting and water harvesting initiatives</li>
+        <li>
+          Traffic calming measures, particularly around Holdeman Elementary and along 16th St / Polly
+          Ann
+        </li>
+        <li>Public art installations</li>
+      </ul>
     </div>
 
     <div class="rounded bg-holdeman/10 p-4">
       <h3 class="font-bold">Phase 2: Vote on Top Ideas</h3>
       <p>
-        January 31–February 21: After reviewing all submissions, we'll create a follow-up survey
-        where you can rank your favorite ideas.
+        Now through February 21: Help us prioritize these project themes by ranking your preferences
+        in our follow-up survey.
       </p>
     </div>
   </div>
@@ -80,12 +88,13 @@
   </p>
 
   <div class="my-8 rounded-lg bg-holdeman/10 p-6 text-center">
-    <h2 class="mb-4 text-xl font-bold">Share Your Ideas!</h2>
+    <h2 class="mb-4 text-xl font-bold">Cast Your Vote!</h2>
     <p class="mb-4">
-      Help shape the future of our neighborhood by submitting your project ideas and preferences.
+      Help us choose the best project for our neighborhood by ranking your preferences among the top
+      themes.
     </p>
     <a
-      href="https://docs.google.com/forms/d/e/1FAIpQLSfVdPhDiWfgdf9xkrGpSEK_6T4CLOVgnH4AHgV3ucFOLF-QMg/viewform?usp=dialog"
+      href="https://docs.google.com/forms/d/e/1FAIpQLSeyBJPkVbw3PAMY6u6J6qGmVAmgBduxwsTrfq7UU6E5YVDihA/viewform?usp=dialog"
       target="_blank"
       rel="noopener"
     >
@@ -96,9 +105,9 @@
   </div>
 
   <h1 class="pb-1.5 pt-5 text-left text-2xl">
-    <span>Example Project Ideas</span>
+    <span>Project Examples</span>
   </h1>
-  <p class="py-0 italic">Here are a few possibilities to inspire you:</p>
+  <p class="py-0 italic">Here's what these types of projects could look like:</p>
   <div class="my-6 space-y-8">
     <div class="grid items-start gap-4 md:grid-cols-2">
       <picture>
@@ -111,22 +120,11 @@
         />
       </picture>
       <div class="md:pt-2">
-        <span>Neighborhood tree planting to add shade and increase cooling.</span>
-      </div>
-    </div>
-
-    <div class="grid items-start gap-4 md:grid-cols-2">
-      <picture>
-        <source srcset="images/bioswale.webp" type="image/webp" />
-        <img
-          alt="Native plants in a stormwater basin"
-          loading="lazy"
-          src="images/bioswale.jpg"
-          class="h-48 w-full rounded-lg object-cover"
-        />
-      </picture>
-      <div class="md:pt-2">
-        <span>Stormwater harvesting and native species planting along streets.</span>
+        <span class="font-bold">Tree Planting & Water Harvesting</span>
+        <p class="mt-2">
+          Adding shade trees and water harvesting features to help cool our neighborhood and manage
+          stormwater.
+        </p>
       </div>
     </div>
 
@@ -141,7 +139,11 @@
         />
       </picture>
       <div class="md:pt-2">
-        <span>Traffic calming measures (traffic circles/speed bumps) to enhance safety.</span>
+        <span class="font-bold">Traffic Calming</span>
+        <p class="mt-2">
+          Safety improvements near Holdeman Elementary and along 16th St / Polly Ann to help slow
+          traffic and protect pedestrians.
+        </p>
       </div>
     </div>
 
@@ -156,41 +158,11 @@
         />
       </picture>
       <div class="md:pt-2">
-        <span
-          >Public art installations in shared spaces, like the medians on Hardy or on street corners.</span
-        >
+        <span class="font-bold">Public Art</span>
+        <p class="mt-2">
+          Creative installations to beautify our neighborhood and create a stronger sense of place.
+        </p>
       </div>
-    </div>
-
-    <div class="grid items-start gap-4 md:grid-cols-2">
-      <picture>
-        <source srcset="images/wall-mural.webp" type="image/webp" />
-        <img
-          alt="Colorful mural on a residential wall"
-          loading="lazy"
-          src="images/wall-mural.jpg"
-          class="h-48 w-full rounded-lg object-cover"
-        />
-      </picture>
-      <div class="md:pt-2">
-        <span>Mural painting on neighbors' street-facing walls to add color and charm.</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="mb-10 mt-8">
-    <h2 class="text-2xl">Stay Updated</h2>
-
-    <p class="my-4">
-      Sign up for our email newsletter to receive updates about the project selection process and
-      other neighborhood news.
-    </p>
-    <div class="flex justify-center">
-      <a class="text-inherit no-underline" href="https://holdemantempe.org/newsletter">
-        <button class="rounded bg-holdeman-400 px-6 py-4 font-bold transition hover:bg-holdeman-500">
-          Newsletter signup
-        </button>
-      </a>
     </div>
   </div>
 </Container>
