@@ -118,7 +118,7 @@
     </a>
   </div>
 
-  <div class="my-8 space-y-8">
+  <div class="my-8 space-y-4">
     <div class="grid gap-4 md:grid-cols-2">
       <picture>
         <source srcset="/images/image1.webp" type="image/webp" />
@@ -139,6 +139,14 @@
         />
       </picture>
     </div>
+    <p class="text-sm text-neutral-600 text-center">
+      Images show bike lane murals painted by <a
+        href="https://www.kyllanmaney.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-blue-600 underline hover:text-blue-800">Kyllan Maney</a> 
+      in the Broadmor Neighborhood on College Ave
+    </p>
   </div>
 
   <div class="mt-8">
