@@ -36,4 +36,20 @@
       <NextEvent {nextEvent} />
     </Container>
   </div>
+
+  <!-- Navigation Menu -->
+  <div class="border-b border-neutral-200">
+    <Container>
+      <nav class="flex overflow-x-auto py-3">
+        <ul class="flex space-x-6 font-medium">
+          <li>
+            <a href="/" class="transition hover:text-holdeman-600">Home</a>
+          </li>
+          <li>
+            <a href="/projects" class="transition hover:text-holdeman-600">Projects</a>
+          </li>
+        </ul>
+      </nav>
+    </Container>
+  </div>
 </div>

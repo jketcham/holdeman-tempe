@@ -42,3 +42,21 @@ export type Event = {
   updated_at: string;
   deleted_at: string | null;
 };
+
+export type ImageFormat = "jpg" | "jpeg" | "png" | "webp" | "gif" | "svg";
+
+export type Image = {
+  path: string;
+  alt: string;
+  formats: ImageFormat[];
+};
+
+export type Project = {
+  id: string;
+  title: string;
+  description: string;
+  year: string;
+  image: Image;
+  slug: string;
+  current?: boolean;
+};
