@@ -22,9 +22,13 @@ export const projects: Project[] = [
       "A community-led project to create vibrant and safer bike lanes on Hardy Drive with murals designed by a local artist.",
     year: "2024-2025",
     image: {
-      path: "/images/hardy-bike-lane-south",
+      path: "/images/hardy-painting-1",
       alt: "Hardy Drive bike lane mural photo",
       formats: ["webp", "jpg"],
+      credit: {
+        name: "Winona Grey",
+        url: "https://nonagrey.com/",
+      },
     },
     slug: "2025",
   },

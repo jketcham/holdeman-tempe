@@ -45,8 +45,20 @@
     <p>{project.description}</p>
   </div>
 
-  <div class="my-8 rounded-lg border border-neutral-200">
+  <div class="my-8">
     <Image image={project.image} className="w-full rounded-lg" loading="lazy" />
+    {#if project.image.credit}
+      <p class="mt-2 text-sm text-neutral-600 text-right pr-2">
+        Photo by 
+        {#if project.image.credit.url}
+          <a href={project.image.credit.url} target="_blank" rel="noopener noreferrer" class="text-blue-600 underline hover:text-blue-800">
+            {project.image.credit.name}
+          </a>
+        {:else}
+          {project.image.credit.name}
+        {/if}
+      </p>
+    {/if}
   </div>
 
   {#if project.id === "2025"}
@@ -71,31 +83,58 @@
         >.
       </p>
 
+      <div class="my-6 space-y-4 rounded-lg bg-holdeman/10 p-6">
+        <h3 class="text-xl font-bold">Project Journey</h3>
+        
+        <div class="space-y-2">
+          <h4 class="font-semibold">Planning & Grant Application - Spring 2024</h4>
+          <p>
+            In Spring 2024, the Holdeman Neighborhood Association decided to pursue a bike lane mural project to enhance safety and beautify Hardy Drive. The association put together a proposal, solicited estimates from artists to include in the application, and submitted it to the City of Tempe on April 22, 2024, as part of the Maryanne Corder Neighborhood Grant Program.
+          </p>
+        </div>
+        
+        <div class="space-y-2">
+          <h4 class="font-semibold">Artist Selection - Summer 2024</h4>
+          <p>
+            In July 2024, we received the exciting news that our project was awarded funding through the grant program, allowing us to move forward with artist selection.
+          </p>
+          <p>
+            Then, from mid-July to early August, the neighborhood held a vote to select an artist for the project. After reviewing multiple talented candidates and collecting community input, Nicole Poppell was chosen to lead the artistic vision for the bike lane murals.
+          </p>
+        </div>
+        
+        <div class="space-y-2">
+          <h4 class="font-semibold">Design Selection - Fall 2024</h4>
+          <p>
+            Nicole created two unique design concepts for the bike lanes, which were presented to the community at the <a href="https://www.tempe.gov/government/city-manager-s-office/neighborhood-services/getting-arizona-involved-in-neighborhoods-gain" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline hover:text-blue-800">GAIN</a> event at Clark Park on October 19, 2024. The neighborhood then voted on their preferred design through November 22, 2024.
+          </p>
+          <p>
+            With votes collected from the community, Design Option 1 was selected as the winning concept. Nicole described her approach:
+          </p>
+          <blockquote class="border-l-4 border-holdeman-300 pl-4 italic text-neutral-700 my-4">
+            "I have long been fascinated by shapes found in nature. In particular, studying shadows and how they hint at the objects while also leaving room for imagination, creating new shapes that morph into one another, similar to clouds.<br /><br />For the bike lane designs, I've photographed plants around my yard and translated them into flat patterns using color interaction that interweave geometric shapes."
+          </blockquote>
+        </div>
+        
+        <div class="space-y-2">
+          <h4 class="font-semibold">Installation - February/March 2025</h4>
+          <p>
+            The installation took place in two phases, with work on the east side of Hardy Drive followed by the west side. Nicole led both the artistic vision and the implementation of the project, guiding community volunteers throughout the installation.
+          </p>
+          <p>
+            Over 50 community volunteers participated, working in shifts under Nicole's direction. The project transformed ordinary bike lanes into colorful, eye-catching pathways that enhance both safety and neighborhood pride.
+          </p>
+        </div>
+      </div>
+
       <h3 class="mt-6 text-xl font-bold">Project Highlights</h3>
       <ul class="list-disc space-y-2 pl-4">
         <li>Community-designed bike lane murals</li>
         <li>Enhanced safety for cyclists and pedestrians</li>
         <li>Beautification of Hardy Drive</li>
         <li>Strengthened community bonds through volunteer participation</li>
-      </ul>
-
-      <h3 class="mt-6 text-xl font-bold">Related Pages</h3>
-      <ul class="list-disc space-y-2 pl-4">
-        <li>
-          <a href="/artist-selection" class="text-blue-600 underline hover:text-blue-800">
-            Artist Selection Process
-          </a>
-        </li>
-        <li>
-          <a href="/design-selection" class="text-blue-600 underline hover:text-blue-800">
-            Design Selection Process
-          </a>
-        </li>
-        <li>
-          <a href="/volunteer" class="text-blue-600 underline hover:text-blue-800">
-            Volunteer Information
-          </a>
-        </li>
+        <li>Funded through the Maryanne Corder Neighborhood Grant Program</li>
+        <li>Part of Tempe's Adaptive Streets initiative</li>
       </ul>
     </div>
   {:else if project.id === "2026"}
@@ -167,8 +206,8 @@
         April 23. If you'd like to lend a hand in drafting this proposal or just to learn more about
         the process, please reach out to Jack Ketcham at <a
           href="mailto:jack@holdemantempe.org"
-          class="text-blue-600 underline hover:text-blue-800">jack@holdemantempe.org</a
-        >.
+          class="text-blue-600 underline hover:text-blue-800"
+        >jack@holdemantempe.org</a>.
       </p>
     </div>
   {/if}

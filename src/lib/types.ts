@@ -48,15 +48,27 @@ export type ImageFormat = "jpg" | "jpeg" | "png" | "webp" | "gif" | "svg";
 export type Image = {
   path: string;
   alt: string;
-  formats: ImageFormat[];
+  formats: string[] | ImageFormat[];
+  credit?: {
+    name: string;
+    url?: string;
+  };
 };
 
-export type Project = {
+export interface Project {
   id: string;
   title: string;
   description: string;
   year: string;
-  image: Image;
+  image: {
+    path: string;
+    alt: string;
+    formats: ImageFormat[];
+    credit?: {
+      name: string;
+      url?: string;
+    };
+  };
   slug: string;
   current?: boolean;
-};
+}
