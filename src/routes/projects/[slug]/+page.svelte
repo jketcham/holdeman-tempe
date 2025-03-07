@@ -173,6 +173,60 @@
     </div>
   {/if}
 
+  <div class="my-12 rounded-lg border border-neutral-200 bg-neutral-50 p-6">
+    <h2 class="mb-4 text-2xl font-bold">Want to do this in your neighborhood?</h2>
+    
+    <div class="space-y-4">
+      <p>
+        The Hardy Drive Bike Lane Project was made possible through Tempe's Neighborhood Grant Program and Adaptive Streets initiative.
+      </p>
+      <p class="italic">
+        Your neighborhood could be next!
+      </p>
+      
+      <div class="space-y-2">
+        <h3 class="text-xl font-semibold">About the Neighborhood Grant Program</h3>
+        <p>
+          Established in 1994, the Maryanne Corder Neighborhood Grant Program provides funding for community-driven projects that enhance neighborhoods and build community connections. Tempe offers grants to Neighborhood Associations (NAs) and Homeowners Associations (HOAs) to fund projects for art, sustainable landscaping, park improvements, adaptive streets initiatives and more. Up to $20,000 is awarded to selected NAs and HOAs.
+        </p>
+        <p>
+          <a 
+            href="https://www.tempe.gov/government/city-manager-s-office/neighborhood-services/neighborhood-grant-program"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-blue-600 underline hover:text-blue-800"
+          >
+            Learn more about the Neighborhood Grant Program →
+          </a>
+        </p>
+      </div>
+      
+      <div class="space-y-2">
+        <h3 class="text-xl font-semibold">About Adaptive Streets</h3>
+        <p>
+          Tempe's Adaptive Streets initiative transforms public spaces to create safer, more vibrant streets for all users. These projects can include bike lane murals, intersection art, traffic calming measures, and other creative interventions that improve street safety and neighborhood character.
+        </p>
+        <p>
+          <a 
+            href="https://www.tempe.gov/government/transportation-and-sustainability/transportation/streetscape-projects/adaptive-streets"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-blue-600 underline hover:text-blue-800"
+          >
+            Explore Tempe's Adaptive Streets Program →
+          </a>
+        </p>
+      </div>
+      
+      <div class="mt-4 pt-2 border-t border-neutral-200">
+        <p class="font-semibold mb-1">Ready to start a project in your neighborhood?</p>
+        <p>
+          Contact Tempe's Neighborhood Services at <a href="mailto:neighborhoods@tempe.gov" class="text-blue-600 underline hover:text-blue-800">neighborhoods@tempe.gov</a> or your neighborhood association to begin the conversation about bringing creative street improvements to your area.
+        </p>
+      </div>
+    </div>
+  </div>
+
   <div class="mt-8">
     <a href="/projects" class="text-blue-600 underline hover:text-blue-800">
       &larr; Back to All Projects
