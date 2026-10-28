@@ -6,7 +6,7 @@ Available at [holdemantempe.org](https://holdemantempe.org).
 
 ## Development
 
-Requires Node.js 26.12.1 or newer (pinned in `.node-version`). `npm install` refuses Node versions that lack the October 2026 security fixes.
+Requires a Node.js release with the October 2026 security fixes: 26.12.1 or newer (pinned in `.node-version`), or 24.22.1+ or 22.23.4+ on the older LTS lines. `npm install` refuses Node versions without these fixes.
 
 First, install dependencies:
 
