@@ -2,12 +2,12 @@
   import Container from "../../../components/Container.svelte";
   import SEO from "../../../components/SEO.svelte";
   import Image from "../../../components/Image.svelte";
-  import type { PageMetadata } from "$lib/types/metadata";
-  import { getProjectById } from "$lib/projects";
-  import { page } from "$app/stores";
+  import type { PageMetadata } from "#lib/types/metadata.js";
+  import { getProjectById } from "#lib/projects.js";
+  import { page } from "$app/state";
   import { error } from "@sveltejs/kit";
 
-  const slug = $page.params.slug;
+  const slug = page.params.slug ?? "";
   const project = getProjectById(slug);
 
   if (!project) {

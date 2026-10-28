@@ -20,16 +20,16 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           # Full git history for Dependabot PRs
           fetch-depth: 0
           ref: ${{ github.event.pull_request.head.sha }}
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
-          node-version: 20
+          node-version-file: .node-version
           cache: "npm"
 
       - name: Install dependencies
@@ -68,15 +68,15 @@ jobs:
         continue-on-error: true
         run: |
           npm run preview &
-          sleep 5
-          # Basic health check
+          # Wait for wrangler pages dev to start, then basic health check
+          for _ in $(seq 1 30); do curl -sf -o /dev/null http://localhost:4173/ && break; sleep 2; done
           curl -f http://localhost:4173/
           # Test API endpoints
           curl -f http://localhost:4173/api/weather
 
       - name: Comment on PR
         if: github.event_name == 'pull_request_target' && always()
-        uses: actions/github-script@v7
+        uses: actions/github-script@v9
         with:
           script: |
             // Store step outcomes

@@ -14,7 +14,13 @@ export async function fetchWeather(): Promise<WeatherData | null> {
         "User-Agent": USER_AGENT,
       },
     });
-    const data = await response.json();
+    const data = (await response.json()) as {
+      properties: {
+        temperature: { value: number };
+        textDescription: string;
+        timestamp: string;
+      };
+    };
 
     return {
       temperature: data.properties.temperature.value,

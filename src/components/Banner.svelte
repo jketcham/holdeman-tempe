@@ -1,6 +1,6 @@
 <script lang="ts">
   import { marked } from "marked";
-  import type { BannerUpdate } from "$lib/types";
+  import type { BannerUpdate } from "#lib/types.js";
 
   export let title: string;
   export let description: string;

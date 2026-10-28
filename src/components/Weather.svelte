@@ -1,8 +1,8 @@
 <script lang="ts">
   import { onMount, onDestroy } from "svelte";
-  import { page } from "$app/stores";
+  import { page } from "$app/state";
 
-  export let initialWeather: { temperature: number; conditions: string } | null = $page.data.weather;
+  export let initialWeather: { temperature: number; conditions: string } | null = page.data.weather;
 
   let temperature: number | null = initialWeather?.temperature ?? null;
   let conditions: string | null = initialWeather?.conditions ?? null;
@@ -33,7 +33,7 @@
     try {
       const response = await fetch("/api/weather");
       if (response.ok) {
-        const data = await response.json();
+        const data = (await response.json()) as { temperature: number; conditions: string };
         temperature = data.temperature;
         conditions = data.conditions;
       }

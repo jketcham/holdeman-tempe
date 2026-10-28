@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { page } from "$app/stores";
-  import { siteMetadata } from "$lib/config/metadata";
-  import type { PageMetadata } from "$lib/types/metadata";
+  import { page } from "$app/state";
+  import { siteMetadata } from "#lib/config/metadata.js";
+  import type { PageMetadata } from "#lib/types/metadata.js";
 
   export let metadata: PageMetadata;
 
@@ -11,7 +11,7 @@
   const canonicalUrl =
     metadata.canonicalUrl ||
     (() => {
-      const pathname = $page.url.pathname;
+      const pathname = page.url.pathname;
       // For root path ('/'), keep as is
       if (pathname === "/") {
         return siteMetadata.siteUrl;

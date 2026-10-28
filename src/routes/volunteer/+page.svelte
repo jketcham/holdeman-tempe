@@ -1,7 +1,7 @@
 <script lang="ts">
   import Container from "../../components/Container.svelte";
   import SEO from "../../components/SEO.svelte";
-  import type { PageMetadata } from "$lib/types/metadata";
+  import type { PageMetadata } from "#lib/types/metadata.js";
 
   const pageMetadata: PageMetadata = {
     title: "Volunteer: Hardy Bike Lane Project",

@@ -13,13 +13,13 @@ jobs:
     steps:
       # Step 1: Checkout code
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       # Step 2: Setup Node.js
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
-          node-version: 20
+          node-version-file: .node-version
           cache: "npm"
 
       # Step 3: Install dependencies
@@ -36,11 +36,11 @@ jobs:
 
       # Step 5: Apply D1 migrations
       - name: Migrate
-        uses: cloudflare/wrangler-action@v3
+        # Uses the wrangler version installed by `npm ci`
+        uses: cloudflare/wrangler-action@v4
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          wranglerVersion: "3.99.0"
           command: d1 migrations apply holdeman --remote --env production
 
       # Step 6: Deploy to Cloudflare Pages

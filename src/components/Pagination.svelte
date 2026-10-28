@@ -3,7 +3,6 @@
   export let totalPages: number;
   export let onPageChange: (page: number) => void;
 
-  $: pages = Array.from({ length: totalPages }, (_, i) => i + 1);
   $: visiblePages = getVisiblePages(currentPage, totalPages);
 
   function getVisiblePages(current: number, total: number) {

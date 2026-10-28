@@ -2,7 +2,7 @@
   import Weather from "./Weather.svelte";
   import NextEvent from "./NextEvent.svelte";
   import Container from "./Container.svelte";
-  import type { Event } from "$lib/types";
+  import type { Event } from "#lib/types.js";
 
   export let initialWeather: { temperature: number; conditions: string } | null = null;
   export let nextEvent: Event | null = null;

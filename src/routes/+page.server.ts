@@ -1,22 +1,20 @@
+import { env } from "cloudflare:workers";
 import type { PageServerLoad } from "./$types";
-import { getActiveLinks, getLatestBanner } from "$lib/db";
-import { getAllProjects } from "$lib/projects";
+import { getActiveLinks, getLatestBanner } from "#lib/db.js";
+import { getAllProjects } from "#lib/projects.js";
 
-export const load: PageServerLoad = async ({ platform }) => {
+export const load: PageServerLoad = async () => {
   // Get the current project
   const projects = getAllProjects();
   const currentProject = projects.find((project) => project.current);
 
-  if (!platform?.env?.DB) {
+  if (!env.DB) {
     console.error("Database not available");
     return { bannerData: null, links: [], currentProject };
   }
 
   try {
-    const [bannerData, links] = await Promise.all([
-      getLatestBanner(platform.env.DB),
-      getActiveLinks(platform.env.DB),
-    ]);
+    const [bannerData, links] = await Promise.all([getLatestBanner(env.DB), getActiveLinks(env.DB)]);
 
     return { bannerData, links, currentProject };
   } catch (error) {

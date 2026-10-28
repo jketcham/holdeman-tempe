@@ -1,5 +1,4 @@
 import type { Link, BannerUpdate, LinkStats, Event } from "./types";
-import type { D1Database } from "@cloudflare/workers-types";
 
 const ACTIVE_LINKS_QUERY = `
 	SELECT * FROM links

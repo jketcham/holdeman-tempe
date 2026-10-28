@@ -1,11 +1,10 @@
 <script lang="ts">
-  import { enhance } from "$app/forms";
+  import { enhance, type ActionResult } from "$app/forms";
   import { invalidate } from "$app/navigation";
-  import { page } from "$app/stores";
+  import { page } from "$app/state";
   import { goto } from "$app/navigation";
   import type { PageData } from "./$types";
-  import type { ActionResult } from "@sveltejs/kit";
-  import { formatDate, fromSQLiteDateTime } from "$lib/utils/dates";
+  import { formatDate, fromSQLiteDateTime } from "#lib/utils/dates.js";
   import BannerForm from "../../components/BannerForm.svelte";
   import LinkForm from "../../components/LinkForm.svelte";
   import Pagination from "../../components/Pagination.svelte";
@@ -17,11 +16,11 @@
   let showNewBannerForm = false;
   let editingLink: number | null = null;
   let editingBanner: number | null = null;
-  let currentBannerPage = parseInt($page.url.searchParams.get("bannerPage") || "1");
-  let currentLinkPage = parseInt($page.url.searchParams.get("linkPage") || "1");
+  let currentBannerPage = parseInt(page.url.searchParams.get("bannerPage") || "1");
+  let currentLinkPage = parseInt(page.url.searchParams.get("linkPage") || "1");
   let showNewEventForm = false;
   let editingEvent: number | null = null;
-  let currentEventPage = parseInt($page.url.searchParams.get("eventPage") || "1");
+  let currentEventPage = parseInt(page.url.searchParams.get("eventPage") || "1");
 
   function getDeleteEnhance(type: "link" | "banner" | "event", label: string) {
     return ({ cancel }: { cancel: () => void }) => {
@@ -39,27 +38,27 @@
     };
   }
 
-  async function handleBannerPageChange(page: number) {
-    currentBannerPage = page;
-    const url = new URL($page.url);
-    url.searchParams.set("bannerPage", page.toString());
-    await goto(url, { keepFocus: true });
+  async function handleBannerPageChange(newPage: number) {
+    currentBannerPage = newPage;
+    const url = new URL(page.url.href);
+    url.searchParams.set("bannerPage", newPage.toString());
+    await goto(url, { reset: false });
     await invalidate("app:banners");
   }
 
-  async function handleLinkPageChange(page: number) {
-    currentLinkPage = page;
-    const url = new URL($page.url);
-    url.searchParams.set("linkPage", page.toString());
-    await goto(url, { keepFocus: true });
+  async function handleLinkPageChange(newPage: number) {
+    currentLinkPage = newPage;
+    const url = new URL(page.url.href);
+    url.searchParams.set("linkPage", newPage.toString());
+    await goto(url, { reset: false });
     await invalidate("app:links");
   }
 
-  async function handleEventPageChange(page: number) {
-    currentEventPage = page;
-    const url = new URL($page.url);
-    url.searchParams.set("eventPage", page.toString());
-    await goto(url, { keepFocus: true });
+  async function handleEventPageChange(newPage: number) {
+    currentEventPage = newPage;
+    const url = new URL(page.url.href);
+    url.searchParams.set("eventPage", newPage.toString());
+    await goto(url, { reset: false });
     await invalidate("app:events");
   }
 </script>

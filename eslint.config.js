@@ -4,13 +4,13 @@ import svelte from "eslint-plugin-svelte";
 import prettier from "eslint-config-prettier";
 import globals from "globals";
 
-/** @type {import('eslint').Linter.FlatConfig[]} */
+/** @type {import('eslint').Linter.Config[]} */
 export default [
   js.configs.recommended,
   ...ts.configs.recommended,
-  ...svelte.configs["flat/recommended"],
+  ...svelte.configs.recommended,
   prettier,
-  ...svelte.configs["flat/prettier"],
+  ...svelte.configs.prettier,
   {
     languageOptions: {
       globals: {
@@ -26,8 +26,20 @@ export default [
         parser: ts.parser,
       },
     },
+    rules: {
+      // Added to the recommended config in eslint-plugin-svelte 3; not yet adopted here
+      "svelte/no-navigation-without-resolve": "off",
+      "svelte/require-each-key": "off",
+    },
   },
   {
-    ignores: ["build/", ".svelte-kit/", "dist/"],
+    ignores: [
+      "build/",
+      ".svelte-kit/",
+      "dist/",
+      "coverage/",
+      ".wrangler/",
+      "src/worker-configuration.d.ts",
+    ],
   },
 ];

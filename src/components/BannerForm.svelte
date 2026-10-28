@@ -1,8 +1,8 @@
 <script lang="ts">
   import { enhance } from "$app/forms";
   import { invalidate } from "$app/navigation";
-  import type { BannerUpdate } from "$lib/types";
-  import { fromSQLiteDateTime } from "$lib/utils/dates";
+  import type { BannerUpdate } from "#lib/types.js";
+  import { fromSQLiteDateTime } from "#lib/utils/dates.js";
 
   export let banner: Partial<BannerUpdate> = {};
   export let action = "?/createBanner";

@@ -21,8 +21,8 @@
     <span class="text-2xl">Background</span>
   </h1>
   <p class="c1">
-    <span>The Holdeman Neighborhood Association was awarded $20k in funding for our </span><span
-      class="c4"
+    <span>The Holdeman Neighborhood Association was awarded $20k in funding for our</span>
+    <span class="c4"
       ><a
         class="c0"
         target="_blank"
@@ -36,7 +36,8 @@
     <span class="text-2xl">Project</span>
   </h1>
   <p class="c1">
-    <span>We&rsquo;ll be completing an </span><span class="c4"
+    <span>We&rsquo;ll be completing an</span>
+    <span class="c4"
       ><a
         class="c0"
         target="_blank"
