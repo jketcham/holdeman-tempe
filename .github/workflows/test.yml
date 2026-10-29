@@ -3,17 +3,14 @@ name: Test
 on:
   push:
     branches: [main]
+  # Also runs for Dependabot PRs, with a read-only token
   pull_request:
-    branches: [main]
-  # Also run when Dependabot creates PRs
-  pull_request_target:
     branches: [main]
 
 jobs:
   test:
     name: Build and Test
     runs-on: ubuntu-latest
-    # Important for security when using pull_request_target
     permissions:
       contents: read
       pull-requests: write
@@ -24,7 +21,6 @@ jobs:
         with:
           # Full git history for Dependabot PRs
           fetch-depth: 0
-          ref: ${{ github.event.pull_request.head.sha }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v7
@@ -74,8 +70,12 @@ jobs:
           # Test API endpoints
           curl -f http://localhost:4173/api/weather
 
+      # Fork and Dependabot PRs get a read-only token, so they can't comment
       - name: Comment on PR
-        if: github.event_name == 'pull_request_target' && always()
+        if: >-
+          always() && github.event_name == 'pull_request' &&
+          github.event.pull_request.head.repo.full_name == github.repository &&
+          github.actor != 'dependabot[bot]'
         uses: actions/github-script@v9
         with:
           script: |
