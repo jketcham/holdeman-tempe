@@ -4,7 +4,6 @@
   import Image from "../../components/Image.svelte";
   import type { PageMetadata } from "#lib/types/metadata.js";
   import { getAllProjects } from "#lib/projects.js";
-  import type { Project } from "#lib/types.js";
 
   const projects = getAllProjects();
 

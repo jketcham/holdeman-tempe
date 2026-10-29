@@ -4,7 +4,7 @@
   import { page } from "$app/state";
   import { goto } from "$app/navigation";
   import type { PageData } from "./$types";
-  import { formatDate, fromSQLiteDateTime } from "#lib/utils/dates.js";
+  import { formatDate } from "#lib/utils/dates.js";
   import BannerForm from "../../components/BannerForm.svelte";
   import LinkForm from "../../components/LinkForm.svelte";
   import Pagination from "../../components/Pagination.svelte";

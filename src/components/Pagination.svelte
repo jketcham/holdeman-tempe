@@ -10,7 +10,6 @@
     const left = current - delta;
     const right = current + delta + 1;
     const rangeWithDots: Array<number | string> = [];
-    let l: number;
 
     for (let i = 1; i <= total; i++) {
       if (i === 1 || i === total || (i >= left && i < right)) {

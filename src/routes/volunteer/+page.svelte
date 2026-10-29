@@ -139,12 +139,13 @@
         />
       </picture>
     </div>
-    <p class="text-sm text-neutral-600 text-center">
+    <p class="text-center text-sm text-neutral-600">
       Images show bike lane murals painted by <a
         href="https://www.kyllanmaney.com/"
         target="_blank"
         rel="noopener noreferrer"
-        class="text-blue-600 underline hover:text-blue-800">Kyllan Maney</a> 
+        class="text-blue-600 underline hover:text-blue-800">Kyllan Maney</a
+      >
       in the Broadmor Neighborhood on College Ave
     </p>
   </div>

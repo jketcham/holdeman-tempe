@@ -5,7 +5,6 @@
   import Image from "../components/Image.svelte";
   import SEO from "../components/SEO.svelte";
   import type { PageMetadata } from "#lib/types/metadata.js";
-  import type { Project } from "#lib/types.js";
 
   export let data;
   const { bannerData, links, currentProject } = data;
