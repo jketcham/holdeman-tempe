@@ -1,7 +1,7 @@
-import { redirect, type Handle } from "@sveltejs/kit";
-import { sequence } from "@sveltejs/kit/hooks";
-import { env } from "$env/dynamic/private";
-import { securityHeaders } from "$lib/config/security";
+import { redirect } from "@sveltejs/kit";
+import { sequence, type Handle } from "@sveltejs/kit/hooks";
+import { ADMIN_SESSION_SECRET } from "$app/env/private";
+import { securityHeaders } from "#lib/config/security.js";
 
 const securityMiddleware: Handle = async ({ event, resolve }) => {
   const response = await resolve(event);
@@ -22,7 +22,7 @@ const protectAdminRoutes: Handle = async ({ event, resolve }) => {
   if (event.url.pathname.startsWith("/admin")) {
     const session = event.cookies.get("admin_session");
 
-    if (!session || session !== env.ADMIN_SESSION_SECRET) {
+    if (!ADMIN_SESSION_SECRET || !session || session !== ADMIN_SESSION_SECRET) {
       throw redirect(303, "/admin/login");
     }
   }

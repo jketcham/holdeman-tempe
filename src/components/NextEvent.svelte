@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { formatDate } from "$lib/utils/dates";
-  import type { Event } from "$lib/types";
+  import { formatDate } from "#lib/utils/dates.js";
+  import type { Event } from "#lib/types.js";
 
   export let nextEvent: Event | null = null;
 

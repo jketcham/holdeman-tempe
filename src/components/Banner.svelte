@@ -1,6 +1,6 @@
 <script lang="ts">
   import { marked } from "marked";
-  import type { BannerUpdate } from "$lib/types";
+  import type { BannerUpdate } from "#lib/types.js";
 
   export let title: string;
   export let description: string;
@@ -20,6 +20,7 @@
 <div class="mb-8 rounded-lg bg-holdeman/10 p-6">
   <div class="mb-2 font-display text-xl font-bold uppercase">{title}</div>
   <div class="prose prose-sm max-w-none whitespace-pre-line text-neutral-700">
+    <!-- eslint-disable-next-line svelte/no-at-html-tags -- Markdown written by admins in /admin; the CSP blocks inline scripts -->
     {@html formattedDescription}
   </div>
 

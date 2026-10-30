@@ -4,8 +4,7 @@
   import Links from "../components/Links.svelte";
   import Image from "../components/Image.svelte";
   import SEO from "../components/SEO.svelte";
-  import type { PageMetadata } from "$lib/types/metadata";
-  import type { Project } from "$lib/types";
+  import type { PageMetadata } from "#lib/types/metadata.js";
 
   export let data;
   const { bannerData, links, currentProject } = data;

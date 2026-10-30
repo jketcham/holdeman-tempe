@@ -2,12 +2,12 @@
   import Container from "../../../components/Container.svelte";
   import SEO from "../../../components/SEO.svelte";
   import Image from "../../../components/Image.svelte";
-  import type { PageMetadata } from "$lib/types/metadata";
-  import { getProjectById } from "$lib/projects";
-  import { page } from "$app/stores";
+  import type { PageMetadata } from "#lib/types/metadata.js";
+  import { getProjectById } from "#lib/projects.js";
+  import { page } from "$app/state";
   import { error } from "@sveltejs/kit";
 
-  const slug = $page.params.slug;
+  const slug = page.params.slug ?? "";
   const project = getProjectById(slug);
 
   if (!project) {
@@ -48,10 +48,15 @@
   <div class="my-8">
     <Image image={project.image} className="w-full rounded-lg" loading="lazy" />
     {#if project.image.credit}
-      <p class="mt-2 text-sm text-neutral-600 text-right pr-2">
-        Photo by 
+      <p class="mt-2 pr-2 text-right text-sm text-neutral-600">
+        Photo by
         {#if project.image.credit.url}
-          <a href={project.image.credit.url} target="_blank" rel="noopener noreferrer" class="text-blue-600 underline hover:text-blue-800">
+          <a
+            href={project.image.credit.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-blue-600 underline hover:text-blue-800"
+          >
             {project.image.credit.name}
           </a>
         {:else}
@@ -85,44 +90,67 @@
 
       <div class="my-6 space-y-4 rounded-lg bg-holdeman/10 p-6">
         <h3 class="text-xl font-bold">Project Journey</h3>
-        
+
         <div class="space-y-2">
           <h4 class="font-semibold">Planning & Grant Application - Spring 2024</h4>
           <p>
-            In Spring 2024, the Holdeman Neighborhood Association decided to pursue a bike lane mural project to enhance safety and beautify Hardy Drive. The association put together a proposal, solicited estimates from artists to include in the application, and submitted it to the City of Tempe on April 22, 2024, as part of the Maryanne Corder Neighborhood Grant Program.
+            In Spring 2024, the Holdeman Neighborhood Association decided to pursue a bike lane mural
+            project to enhance safety and beautify Hardy Drive. The association put together a
+            proposal, solicited estimates from artists to include in the application, and submitted
+            it to the City of Tempe on April 22, 2024, as part of the Maryanne Corder Neighborhood
+            Grant Program.
           </p>
         </div>
-        
+
         <div class="space-y-2">
           <h4 class="font-semibold">Artist Selection - Summer 2024</h4>
           <p>
-            In July 2024, we received the exciting news that our project was awarded funding through the grant program, allowing us to move forward with artist selection.
+            In July 2024, we received the exciting news that our project was awarded funding through
+            the grant program, allowing us to move forward with artist selection.
           </p>
           <p>
-            Then, from mid-July to early August, the neighborhood held a vote to select an artist for the project. After reviewing multiple talented candidates and collecting community input, Nicole Poppell was chosen to lead the artistic vision for the bike lane murals.
+            Then, from mid-July to early August, the neighborhood held a vote to select an artist for
+            the project. After reviewing multiple talented candidates and collecting community input,
+            Nicole Poppell was chosen to lead the artistic vision for the bike lane murals.
           </p>
         </div>
-        
+
         <div class="space-y-2">
           <h4 class="font-semibold">Design Selection - Fall 2024</h4>
           <p>
-            Nicole created two unique design concepts for the bike lanes, which were presented to the community at the <a href="https://www.tempe.gov/government/city-manager-s-office/neighborhood-services/getting-arizona-involved-in-neighborhoods-gain" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline hover:text-blue-800">GAIN</a> event at Clark Park on October 19, 2024. The neighborhood then voted on their preferred design through November 22, 2024.
+            Nicole created two unique design concepts for the bike lanes, which were presented to the
+            community at the <a
+              href="https://www.tempe.gov/government/city-manager-s-office/neighborhood-services/getting-arizona-involved-in-neighborhoods-gain"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-blue-600 underline hover:text-blue-800">GAIN</a
+            > event at Clark Park on October 19, 2024. The neighborhood then voted on their preferred design
+            through November 22, 2024.
           </p>
           <p>
-            With votes collected from the community, Design Option 1 was selected as the winning concept. Nicole described her approach:
+            With votes collected from the community, Design Option 1 was selected as the winning
+            concept. Nicole described her approach:
           </p>
-          <blockquote class="border-l-4 border-holdeman-300 pl-4 italic text-neutral-700 my-4">
-            "I have long been fascinated by shapes found in nature. In particular, studying shadows and how they hint at the objects while also leaving room for imagination, creating new shapes that morph into one another, similar to clouds.<br /><br />For the bike lane designs, I've photographed plants around my yard and translated them into flat patterns using color interaction that interweave geometric shapes."
+          <blockquote class="my-4 border-l-4 border-holdeman-300 pl-4 italic text-neutral-700">
+            "I have long been fascinated by shapes found in nature. In particular, studying shadows
+            and how they hint at the objects while also leaving room for imagination, creating new
+            shapes that morph into one another, similar to clouds.<br /><br />For the bike lane
+            designs, I've photographed plants around my yard and translated them into flat patterns
+            using color interaction that interweave geometric shapes."
           </blockquote>
         </div>
-        
+
         <div class="space-y-2">
           <h4 class="font-semibold">Installation - February/March 2025</h4>
           <p>
-            The installation took place in two phases, with work on the east side of Hardy Drive followed by the west side. Nicole led both the artistic vision and the implementation of the project, guiding community volunteers throughout the installation.
+            The installation took place in two phases, with work on the east side of Hardy Drive
+            followed by the west side. Nicole led both the artistic vision and the implementation of
+            the project, guiding community volunteers throughout the installation.
           </p>
           <p>
-            Over 50 community volunteers participated, working in shifts under Nicole's direction. The project transformed ordinary bike lanes into colorful, eye-catching pathways that enhance both safety and neighborhood pride.
+            Over 50 community volunteers participated, working in shifts under Nicole's direction.
+            The project transformed ordinary bike lanes into colorful, eye-catching pathways that
+            enhance both safety and neighborhood pride.
           </p>
         </div>
       </div>
@@ -206,30 +234,33 @@
         April 23. If you'd like to lend a hand in drafting this proposal or just to learn more about
         the process, please reach out to Jack Ketcham at <a
           href="mailto:jack@holdemantempe.org"
-          class="text-blue-600 underline hover:text-blue-800"
-        >jack@holdemantempe.org</a>.
+          class="text-blue-600 underline hover:text-blue-800">jack@holdemantempe.org</a
+        >.
       </p>
     </div>
   {/if}
 
   <div class="my-12 rounded-lg border border-neutral-200 bg-neutral-50 p-6">
     <h2 class="mb-4 text-2xl font-bold">Want to do this in your neighborhood?</h2>
-    
+
     <div class="space-y-4">
       <p>
-        The Hardy Drive Bike Lane Project was made possible through Tempe's Neighborhood Grant Program and Adaptive Streets initiative.
+        The Hardy Drive Bike Lane Project was made possible through Tempe's Neighborhood Grant
+        Program and Adaptive Streets initiative.
       </p>
-      <p class="italic">
-        Your neighborhood could be next!
-      </p>
-      
+      <p class="italic">Your neighborhood could be next!</p>
+
       <div class="space-y-2">
         <h3 class="text-xl font-semibold">About the Neighborhood Grant Program</h3>
         <p>
-          Established in 1994, the Maryanne Corder Neighborhood Grant Program provides funding for community-driven projects that enhance neighborhoods and build community connections. Tempe offers grants to Neighborhood Associations (NAs) and Homeowners Associations (HOAs) to fund projects for art, sustainable landscaping, park improvements, adaptive streets initiatives and more. Up to $20,000 is awarded to selected NAs and HOAs.
+          Established in 1994, the Maryanne Corder Neighborhood Grant Program provides funding for
+          community-driven projects that enhance neighborhoods and build community connections. Tempe
+          offers grants to Neighborhood Associations (NAs) and Homeowners Associations (HOAs) to fund
+          projects for art, sustainable landscaping, park improvements, adaptive streets initiatives
+          and more. Up to $20,000 is awarded to selected NAs and HOAs.
         </p>
         <p>
-          <a 
+          <a
             href="https://www.tempe.gov/government/city-manager-s-office/neighborhood-services/neighborhood-grant-program"
             target="_blank"
             rel="noopener noreferrer"
@@ -239,14 +270,17 @@
           </a>
         </p>
       </div>
-      
+
       <div class="space-y-2">
         <h3 class="text-xl font-semibold">About Adaptive Streets</h3>
         <p>
-          Tempe's Adaptive Streets initiative transforms public spaces to create safer, more vibrant streets for all users. These projects can include bike lane murals, intersection art, traffic calming measures, and other creative interventions that improve street safety and neighborhood character.
+          Tempe's Adaptive Streets initiative transforms public spaces to create safer, more vibrant
+          streets for all users. These projects can include bike lane murals, intersection art,
+          traffic calming measures, and other creative interventions that improve street safety and
+          neighborhood character.
         </p>
         <p>
-          <a 
+          <a
             href="https://www.tempe.gov/government/transportation-and-sustainability/transportation/streetscape-projects/adaptive-streets"
             target="_blank"
             rel="noopener noreferrer"
@@ -256,11 +290,15 @@
           </a>
         </p>
       </div>
-      
-      <div class="mt-4 pt-2 border-t border-neutral-200">
-        <p class="font-semibold mb-1">Ready to start a project in your neighborhood?</p>
+
+      <div class="mt-4 border-t border-neutral-200 pt-2">
+        <p class="mb-1 font-semibold">Ready to start a project in your neighborhood?</p>
         <p>
-          Contact Tempe's Neighborhood Services at <a href="mailto:neighborhoods@tempe.gov" class="text-blue-600 underline hover:text-blue-800">neighborhoods@tempe.gov</a> or your neighborhood association to begin the conversation about bringing creative street improvements to your area.
+          Contact Tempe's Neighborhood Services at <a
+            href="mailto:neighborhoods@tempe.gov"
+            class="text-blue-600 underline hover:text-blue-800">neighborhoods@tempe.gov</a
+          > or your neighborhood association to begin the conversation about bringing creative street improvements
+          to your area.
         </p>
       </div>
     </div>

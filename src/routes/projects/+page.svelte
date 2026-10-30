@@ -2,9 +2,8 @@
   import Container from "../../components/Container.svelte";
   import SEO from "../../components/SEO.svelte";
   import Image from "../../components/Image.svelte";
-  import type { PageMetadata } from "$lib/types/metadata";
-  import { getAllProjects } from "$lib/projects";
-  import type { Project } from "$lib/types";
+  import type { PageMetadata } from "#lib/types/metadata.js";
+  import { getAllProjects } from "#lib/projects.js";
 
   const projects = getAllProjects();
 

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { Link } from "$lib/types";
+  import type { Link } from "#lib/types.js";
   export let links: Link[] = [];
 
   function handleClick(link: Link) {

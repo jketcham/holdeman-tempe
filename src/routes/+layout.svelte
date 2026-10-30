@@ -1,7 +1,6 @@
 <script lang="ts">
   import "../app.css";
   import Navbar from "../components/Navbar.svelte";
-  import Container from "../components/Container.svelte";
   import Footer from "../components/Footer.svelte";
 
   export let data;

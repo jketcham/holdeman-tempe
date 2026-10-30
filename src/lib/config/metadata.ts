@@ -1,4 +1,4 @@
-import type { SiteMetadata } from "$lib/types/metadata";
+import type { SiteMetadata } from "#lib/types/metadata.js";
 
 export const siteMetadata: SiteMetadata = {
   siteName: "Holdeman Neighborhood Association",

@@ -1,8 +1,8 @@
 <script lang="ts">
   import { enhance } from "$app/forms";
   import { invalidate } from "$app/navigation";
-  import type { Event } from "$lib/types";
-  import { fromSQLiteDateTime } from "$lib/utils/dates";
+  import type { Event } from "#lib/types.js";
+  import { fromSQLiteDateTime } from "#lib/utils/dates.js";
 
   export let event: Partial<Event> = {};
   export let action = "?/createEvent";

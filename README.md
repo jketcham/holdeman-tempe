@@ -6,6 +6,8 @@ Available at [holdemantempe.org](https://holdemantempe.org).
 
 ## Development
 
+Requires a Node.js release with the October 2026 security fixes: 26.12.1 or newer (pinned in `.node-version`), or 24.22.1+ or 22.23.4+ on the older LTS lines. `npm install` refuses Node versions without these fixes.
+
 First, install dependencies:
 
 ```bash
@@ -29,6 +31,12 @@ To create a production version locally:
 
 ```bash
 npm run build
+```
+
+To preview the production build locally in the Cloudflare runtime (`wrangler pages dev`):
+
+```bash
+npm run preview
 ```
 
 To manually deploy to Cloudflare Pages:

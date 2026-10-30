@@ -1,8 +1,8 @@
 <script lang="ts">
   import { enhance } from "$app/forms";
   import { invalidate } from "$app/navigation";
-  import { fromSQLiteDateTime } from "$lib/utils/dates";
-  import type { Link } from "$lib/types";
+  import { fromSQLiteDateTime } from "#lib/utils/dates.js";
+  import type { Link } from "#lib/types.js";
 
   export let link: Partial<Link> = {};
   export let action = "?/createLink";

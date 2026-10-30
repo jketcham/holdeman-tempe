@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { Image as ImageType } from "$lib/types";
+  import type { Image as ImageType } from "#lib/types.js";
 
   export let image: ImageType;
   export let className = "";

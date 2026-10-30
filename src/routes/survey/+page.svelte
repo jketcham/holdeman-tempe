@@ -1,7 +1,7 @@
 <script lang="ts">
   import Container from "../../components/Container.svelte";
   import SEO from "../../components/SEO.svelte";
-  import type { PageMetadata } from "$lib/types/metadata";
+  import type { PageMetadata } from "#lib/types/metadata.js";
 
   const pageMetadata: PageMetadata = {
     title: "Project Selection",
@@ -28,7 +28,8 @@
     <span>Background</span>
   </h1>
   <p class="py-0">
-    <span>We're preparing to apply for another </span><span class="text-blue-600 underline"
+    <span>We're preparing to apply for another</span>
+    <span class="text-blue-600 underline"
       ><a
         class="text-inherit no-underline"
         target="_blank"

@@ -1,6 +1,7 @@
+import { env } from "cloudflare:workers";
 import { error, fail } from "@sveltejs/kit";
 import type { Actions, PageServerLoad } from "./$types";
-import { toSQLiteDateTime } from "$lib/utils/dates";
+import { toSQLiteDateTime } from "#lib/utils/dates.js";
 import {
   createBannerUpdate,
   createLink,
@@ -15,10 +16,10 @@ import {
   deleteEvent,
   getEvents,
   updateEvent,
-} from "$lib/db";
+} from "#lib/db.js";
 
-export const load: PageServerLoad = async ({ platform, depends, url }) => {
-  if (!platform?.env?.DB) {
+export const load: PageServerLoad = async ({ depends, url }) => {
+  if (!env.DB) {
     throw new Error("Database not available");
   }
 
@@ -31,18 +32,18 @@ export const load: PageServerLoad = async ({ platform, depends, url }) => {
   const eventPage = parseInt(url.searchParams.get("eventPage") || "1");
 
   const [links, bannerUpdates, linkStats, events] = await Promise.all([
-    getLinks(platform.env.DB, linkPage),
-    getBannerUpdates(platform.env.DB, bannerPage),
-    getLinkStats(platform.env.DB),
-    getEvents(platform.env.DB, eventPage),
+    getLinks(env.DB, linkPage),
+    getBannerUpdates(env.DB, bannerPage),
+    getLinkStats(env.DB),
+    getEvents(env.DB, eventPage),
   ]);
 
   return { links, bannerUpdates, linkStats, events };
 };
 
 export const actions: Actions = {
-  createBanner: async ({ request, platform }) => {
-    if (!platform?.env?.DB) {
+  createBanner: async ({ request }) => {
+    if (!env.DB) {
       throw error(500, "Database not available");
     }
 
@@ -58,7 +59,7 @@ export const actions: Actions = {
       return fail(400, { message: "Title and content are required" });
     }
 
-    await createBannerUpdate(platform.env.DB, {
+    await createBannerUpdate(env.DB, {
       title,
       content,
       link_url,
@@ -70,8 +71,8 @@ export const actions: Actions = {
     return { success: true };
   },
 
-  createLink: async ({ request, platform }) => {
-    if (!platform?.env?.DB) {
+  createLink: async ({ request }) => {
+    if (!env.DB) {
       throw error(500, "Database not available");
     }
 
@@ -86,7 +87,7 @@ export const actions: Actions = {
       return fail(400, { message: "URL, label, and order are required" });
     }
 
-    await createLink(platform.env.DB, {
+    await createLink(env.DB, {
       link_url,
       link_label,
       order,
@@ -97,8 +98,8 @@ export const actions: Actions = {
     return { success: true };
   },
 
-  updateBanner: async ({ request, platform }) => {
-    if (!platform?.env?.DB) {
+  updateBanner: async ({ request }) => {
+    if (!env.DB) {
       throw error(500, "Database not available");
     }
 
@@ -115,7 +116,7 @@ export const actions: Actions = {
       return fail(400, { message: "ID, title, and content are required" });
     }
 
-    await updateBannerUpdate(platform.env.DB, id, {
+    await updateBannerUpdate(env.DB, id, {
       title,
       content,
       link_url,
@@ -127,8 +128,8 @@ export const actions: Actions = {
     return { success: true };
   },
 
-  updateLink: async ({ request, platform }) => {
-    if (!platform?.env?.DB) {
+  updateLink: async ({ request }) => {
+    if (!env.DB) {
       throw error(500, "Database not available");
     }
 
@@ -144,7 +145,7 @@ export const actions: Actions = {
       return fail(400, { message: "ID, URL, label, and order are required" });
     }
 
-    await updateLink(platform.env.DB, id, {
+    await updateLink(env.DB, id, {
       link_url,
       link_label,
       order,
@@ -155,8 +156,8 @@ export const actions: Actions = {
     return { success: true };
   },
 
-  deleteBanner: async ({ request, platform }) => {
-    if (!platform?.env?.DB) {
+  deleteBanner: async ({ request }) => {
+    if (!env.DB) {
       throw error(500, "Database not available");
     }
 
@@ -167,12 +168,12 @@ export const actions: Actions = {
       return fail(400, { message: "ID is required" });
     }
 
-    await deleteBannerUpdate(platform.env.DB, id);
+    await deleteBannerUpdate(env.DB, id);
     return { success: true };
   },
 
-  deleteLink: async ({ request, platform }) => {
-    if (!platform?.env?.DB) {
+  deleteLink: async ({ request }) => {
+    if (!env.DB) {
       throw error(500, "Database not available");
     }
 
@@ -183,12 +184,12 @@ export const actions: Actions = {
       return fail(400, { message: "ID is required" });
     }
 
-    await deleteLink(platform.env.DB, id);
+    await deleteLink(env.DB, id);
     return { success: true };
   },
 
-  createEvent: async ({ request, platform }) => {
-    if (!platform?.env?.DB) {
+  createEvent: async ({ request }) => {
+    if (!env.DB) {
       throw error(500, "Database not available");
     }
 
@@ -210,7 +211,7 @@ export const actions: Actions = {
       return fail(400, { message: "Invalid start date format" });
     }
 
-    await createEvent(platform.env.DB, {
+    await createEvent(env.DB, {
       type,
       name,
       description,
@@ -223,8 +224,8 @@ export const actions: Actions = {
     return { success: true };
   },
 
-  updateEvent: async ({ request, platform }) => {
-    if (!platform?.env?.DB) {
+  updateEvent: async ({ request }) => {
+    if (!env.DB) {
       throw error(500, "Database not available");
     }
 
@@ -247,7 +248,7 @@ export const actions: Actions = {
       return fail(400, { message: "Invalid start date format" });
     }
 
-    await updateEvent(platform.env.DB, id, {
+    await updateEvent(env.DB, id, {
       type,
       name,
       description,
@@ -260,8 +261,8 @@ export const actions: Actions = {
     return { success: true };
   },
 
-  deleteEvent: async ({ request, platform }) => {
-    if (!platform?.env?.DB) {
+  deleteEvent: async ({ request }) => {
+    if (!env.DB) {
       throw error(500, "Database not available");
     }
 
@@ -272,7 +273,7 @@ export const actions: Actions = {
       return fail(400, { message: "ID is required" });
     }
 
-    await deleteEvent(platform.env.DB, id);
+    await deleteEvent(env.DB, id);
     return { success: true };
   },
 };

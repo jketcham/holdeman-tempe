@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { page } from "$app/stores";
-  import { siteMetadata } from "$lib/config/metadata";
-  import type { PageMetadata } from "$lib/types/metadata";
+  import { page } from "$app/state";
+  import { siteMetadata } from "#lib/config/metadata.js";
+  import type { PageMetadata } from "#lib/types/metadata.js";
 
   export let metadata: PageMetadata;
 
@@ -11,7 +11,7 @@
   const canonicalUrl =
     metadata.canonicalUrl ||
     (() => {
-      const pathname = $page.url.pathname;
+      const pathname = page.url.pathname;
       // For root path ('/'), keep as is
       if (pathname === "/") {
         return siteMetadata.siteUrl;
@@ -47,6 +47,12 @@
       },
     },
   };
+
+  // Built here because a <script> tag in the markup breaks the ESLint parser.
+  // Escaping "<" keeps metadata text from closing the tag early, and the closing
+  // tag is split so it doesn't end this script block.
+  const jsonLdJson = JSON.stringify(jsonLd).replace(/</g, "\\u003c");
+  const jsonLdScript = `<script type="application/ld+json">${jsonLdJson}</` + "script>";
 </script>
 
 <svelte:head>
@@ -78,6 +84,6 @@
     content={`${siteMetadata.siteUrl}${metadata.image || siteMetadata.defaultImage}`}
   />
 
-  <!-- JSON-LD -->
-  {@html `<script type="application/ld+json">${JSON.stringify(jsonLd)}</script>`}
+  <!-- eslint-disable-next-line svelte/no-at-html-tags -- JSON-LD -->
+  {@html jsonLdScript}
 </svelte:head>
