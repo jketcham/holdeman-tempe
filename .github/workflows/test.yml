@@ -3,10 +3,8 @@ name: Test
 on:
   push:
     branches: [main]
+  # Also runs for Dependabot PRs, with a read-only token
   pull_request:
-    branches: [main]
-  # Also run when Dependabot creates PRs
-  pull_request_target:
     branches: [main]
 
 jobs:
